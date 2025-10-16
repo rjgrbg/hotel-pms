@@ -1,0 +1,163 @@
+.frontPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-image: linear-gradient(
+      rgba(72, 12, 27, 0.8),
+      rgba(72, 12, 27, 0.8)
+    ),
+    url('/bg-landingpage.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  position: relative;
+}
+
+/* Login Button */
+.loginButton {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  background: transparent;
+  color: #ffb400;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.loginButton:hover {
+  color: #ffd580;
+}
+
+/* Logo Section */
+.logocontainer {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 450px;
+  height: 450px;
+  object-fit: contain;
+}
+
+.logoName {
+  font-size: 40px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ffb400;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #ffb400;
+}
+
+/* Property Management Section */
+.propertySection {
+  background-color: #FFF2E0;
+  color: #3b1a00;
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -4px;
+}
+
+.propertySection h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-family: 'Arial Black';
+  margin-top: 0;
+}
+
+.propertySection hr {
+  width: 80px;
+  border: 1px solid #cfa349;
+  margin: 10px auto 20px;
+}
+
+.propertySection p {
+  color: #6b4a2b;
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+/* Cards Layout - 2x2 Grid */
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 640px; /* Fixed width container for consistent sizing */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Card Style */
+.card {
+  width: 100%; /* Fill grid cell */
+  aspect-ratio: 1; /* Keep cards perfectly square */
+  background-color: rgb(72, 28, 39);
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+
+.card:nth-child(2),
+.card:nth-child(3) {
+  background-color: #f7a622;
+  color: #3b1a00;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.card h3 {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 14px;
+  margin-top: 6px;
+  max-width: 220px;
+  line-height: 1.4;
+}
+
+/* Responsive Design - Mobile view */
+@media (max-width: 768px) {
+  .cardsContainer {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

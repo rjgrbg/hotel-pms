@@ -1,38 +1,59 @@
+import styles from './page.module.css';
+
 export default function LoginPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
-          🏨 Hotel PMS Login
-        </h1>
+    <main>
+    <div className={styles.frontPage}>
 
-        <form className="space-y-4">
-          <div>
-            <label className="block text-gray-600 text-sm mb-1">Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-400 outline-none"
-            />
-          </div>
+      {/* Login button */}
+      <button className={styles.loginButton}>LOGIN</button>
 
-          <div>
-            <label className="block text-gray-600 text-sm mb-1">Password</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-400 outline-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition-all"
-          >
-            Login
-          </button>
-        </form>
+      {/* Logo */}
+      <div className={styles.logocontainer}>
+        <img src="/celestia-logo.png" alt="Logo" className={styles.logo} />
+        <h2 className={styles.logoName}>THE CELESTIA HOTEL</h2>
+        <p className={styles.subtitle}>
+          Housekeeping · Maintenance · Parking · Inventory
+        </p>
       </div>
+    </div>  
+
+    
+      {/* --- Property Management Section --- */}
+      <section className={styles.propertySection}>
+        <h2>Property Management</h2>
+        <hr />
+        <p>
+          Where management meets sophistication. <br />
+          Elevate housekeeping, maintenance, parking, and inventory with ease.
+        </p>
+
+        <div className={styles.cardsContainer}>
+          <div className={styles.card}>
+            <img src="/housekeeping.png" width="50" alt="Housekeeping Icon" />
+            <h3>Housekeeping</h3>
+            <p>Impeccable care, timeless comfort.</p>
+          </div>
+
+          <div className={styles.card}>
+            <img src="/maintenance.png" width="50" alt="Maintenance Icon" />
+            <h3>Maintenance</h3>
+            <p>Excellence preserved in every detail.</p>
+          </div>
+
+          <div className={styles.card}>
+            <img src="/parking.png" width="50" alt="Parking Icon" />
+            <h3>Parking</h3>
+            <p>Effortless organization, maximum convenience.</p>
+          </div>
+
+          <div className={styles.card}>
+            <img src="/inventory.png" width="50" alt="Inventory Icon" />
+            <h3>Inventory</h3>
+            <p>Smart tracking, seamless control.</p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
