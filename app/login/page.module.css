@@ -62,23 +62,55 @@
   color: #ffb400;
 }
 
-/* Property Management Section */
+/* --- Property Management Section --- */
 .propertySection {
-  background-color: #FFF2E0;
-  color: #3b1a00;
+  position: relative;
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
+  color: #352721;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-top: -4px;
+  align-items: center;
+  font-family: 'Georgia', serif;
+  overflow: hidden;
 }
 
+/* Two-tone background */
+.propertySection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background-color: #352C24; /* Dark brown upper half */
+  z-index: 0;
+}
+
+.propertySection::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background-color: #FFF2E0; /* Light beige lower half */
+  z-index: 0;
+}
+
+/* Ensure text and cards stay above the backgrounds */
+.propertySection > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title and divider */
 .propertySection h2 {
+  color: #fff;
   font-size: 32px;
-  margin-bottom: 10px;
-  font-family: 'Arial Black';
+  margin-bottom: 8px;
   margin-top: 0;
+  font-family: 'Arial Black';
 }
 
 .propertySection hr {
@@ -87,59 +119,60 @@
   margin: 10px auto 20px;
 }
 
+/* Description */
 .propertySection p {
-  color: #6b4a2b;
-  font-size: 18px;
-  max-width: 600px;
-  margin: 0 auto 40px;
-}
-
-/* Cards Layout - 2x2 Grid */
-.cardsContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  max-width: 640px; /* Fixed width container for consistent sizing */
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Card Style */
-.card {
-  width: 100%; /* Fill grid cell */
-  aspect-ratio: 1; /* Keep cards perfectly square */
-  background-color: rgb(72, 28, 39);
-  border-radius: 12px;
   color: #fff;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  line-height: 1.5;
+}
+
+/* Cards container */
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Card styling */
+.card {
+  cursor: pointer;
+  width: 300px;
+  height: 300px;
+  background-color: rgb(72, 28, 39);
+  border-radius: 10px;
+  color: #ffb400;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
   padding: 20px;
-  box-sizing: border-box;
+  text-align: center;
 }
 
-
-
+/* Alternate card colors */
 .card:nth-child(2),
 .card:nth-child(3) {
   background-color: #f7a622;
   color: #3b1a00;
 }
 
+/* Hover effect */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 .card h3 {
-  margin-top: 12px;
   font-size: 18px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .card p {
@@ -148,6 +181,75 @@
   max-width: 220px;
   line-height: 1.4;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+  }
+}
+
+
+
+/* --- Footer Section --- */
+.footer {
+  background-color: #2A1C18; /* Elegant dark brown */
+  color: #ffb400; /* Golden text */
+  text-align: center;
+  padding: 60px 20px 40px;
+  font-family: 'Georgia', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo Styling */
+.footer img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Text Styling */
+.footer p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #ffcc66;
+}
+
+/* Links (Terms, Privacy) */
+.footerLinks {
+  margin: 10px 0;
+}
+
+.footerLinks a {
+  color: #ffb400;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 12px;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: #ffd580;
+}
+
+/* Address + Email */
+.footerInfo {
+  margin-top: 8px;
+  color: #e8cfa3;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
 
 /* Responsive Design - Mobile view */
 @media (max-width: 768px) {
@@ -160,4 +262,346 @@
   .card {
     width: 100%;
   }
+}
+
+/* LOGIN WINODW */
+
+/* Modal Backdrop with Blur Effect */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Login Modal */
+.loginModal {
+  background: linear-gradient(135deg, #1a1410 0%, #2d2419 100%);
+  border: 2px solid #a38b6d;
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #a38b6d;
+  font-size: 32px;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: #c9b896;
+}
+
+/* Login Header */
+.loginHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modalLogo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px auto;
+  display: block;
+}
+
+.loginHeader h2 {
+  color: #a38b6d;
+  font-size: 24px;
+  margin: 10px 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.loginHeader p {
+  color: #8a7a62;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Login Form */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  color: #a38b6d;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.formGroup input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #a38b6d;
+  border-radius: 8px;
+  padding: 12px 15px;
+  color: #ffffff;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.formGroup input::placeholder {
+  color: #6a5d4d;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #c9b896;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(163, 139, 109, 0.1);
+}
+
+/* Form Options */
+.formOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -5px 0;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8a7a62;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.rememberMe input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: #a38b6d;
+}
+
+.forgotPassword {
+  color: #a38b6d;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.forgotPassword:hover {
+  color: #c9b896;
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.submitButton {
+  background: linear-gradient(135deg, #a38b6d 0%, #8a7a62 100%);
+  color: #1a1410;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #c9b896 0%, #a38b6d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(163, 139, 109, 0.4);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+/* Login Footer */
+.loginFooter {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(163, 139, 109, 0.2);
+}
+
+.loginFooter p {
+  color: #8a7a62;
+  font-size: 13px;
+}
+
+.loginFooter a {
+  color: #a38b6d;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.loginFooter a:hover {
+  color: #c9b896;
+  text-decoration: underline;
+}
+
+/* Make cards clickable */
+.card {
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Recovery Modal */
+.recoveryModal {
+  background: linear-gradient(135deg, #f5e6d3 0%, #e8d4b8 100%);
+  border: 3px solid #5c3d2e;
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+/* Recovery Header */
+.recoveryHeader {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.recoveryHeader h2 {
+  color: #2d1810;
+  font-size: 26px;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+.recoveryHeader p {
+  color: #5c3d2e;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Recovery Options */
+.recoveryOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.recoveryButton {
+  background: linear-gradient(135deg, #5c3d2e 0%, #3d251c 100%);
+  color: #d4af78;
+  border: none;
+  border-radius: 25px;
+  padding: 14px 40px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0 4px 15px rgba(92, 61, 46, 0.3);
+}
+
+.recoveryButton:hover {
+  background: linear-gradient(135deg, #6e4a38 0%, #4d2f22 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(92, 61, 46, 0.5);
+  color: #e8d4b8;
+}
+
+.recoveryButton:active {
+  transform: translateY(0);
+}
+
+/* OR Divider */
+.orDivider {
+  color: #5c3d2e;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 5px 0;
+  position: relative;
+  text-align: center;
+}
+
+/* Recovery Footer */
+.recoveryFooter {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 2px solid rgba(92, 61, 46, 0.2);
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #5c3d2e;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 8px 16px;
+}
+
+.backButton:hover {
+  color: #3d251c;
+  text-decoration: underline;
+}
+
+/* Update close button for recovery modal */
+.recoveryModal .closeButton {
+  color: #5c3d2e;
+}
+
+.recoveryModal .closeButton:hover {
+  color: #3d251c;
 }
