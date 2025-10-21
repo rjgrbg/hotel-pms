@@ -1,0 +1,710 @@
+/* =========================================================
+   PALETTE & FONTS (From Brand Guide)
+   Primary Font: 'Abril Fatface', serif
+   Secondary Font: Arial, sans-serif
+   
+   Maroon: #480C1B
+   Gold/Orange: #FFA237
+   Off-white: #FFF2E0
+   Dark Brown: #352C24
+   =========================================================
+*/
+
+/* Basic Reset and Font */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* SECONDARY FONT */
+    background-image: url('background.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    min-height: 100vh;
+}
+
+/* Main Header (Top Bar) */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white text */
+    font-family: 'Abril Fatface', serif; /* PRIMARY FONT */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 35px; 
+    margin-right: 10px;
+    vertical-align: middle; 
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 700; 
+    text-transform: uppercase;
+}
+
+/* User Profile Icon */
+.user-profile {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #FFF2E0; /* Off-white border */
+    color: #FFF2E0; /* Off-white icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.user-profile .fa-user-circle {
+    font-size: 34px;
+}
+
+/* Content Area */
+.content-area {
+    padding: 20px;
+}
+
+/* Controls Bar (Search, Filters) */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* WHITE ULIT */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+/* "INVENTORY" Title */
+.inventory-title {
+    display: flex;
+    align-items: center;
+}
+
+.inventory-icon-placeholder {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #FFA237; /* Gold/Orange */
+    color: #352C24; /* Dark Brown icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 22px;
+}
+
+.inventory-text {
+    margin: 0;
+    font-family: 'Abril Fatface', serif; /* PRIMARY FONT */
+    font-weight: 700;
+    font-size: 30px; 
+    color: #352C24; /* Dark Brown */
+}
+
+
+.filters-and-search {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.filters-and-search select,
+.filters-and-search input[type="search"] {
+    padding: 10px 40px 10px 15px; /* Added right padding for icon */
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    font-size: 14px;
+    background-color: #ffffff; 
+    font-family: Arial, sans-serif;
+    color: #352C24;
+    box-sizing: border-box; /* Important for padding */
+}
+
+/* Hide default search cancel button */
+.filters-and-search input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+.filters-and-search input[type="search"]::-ms-clear {
+    display: none; width: 0; height: 0;
+}
+
+
+.search-container {
+    position: relative;
+}
+
+.search-container .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFA237; /* Gold/Orange */
+    font-weight: bold;
+    pointer-events: none; /* Icon not clickable */
+}
+
+.history-icon {
+    font-size: 24px;
+    color: #352C24; /* Dark Brown */
+    cursor: pointer;
+}
+
+/* Table */
+.table-container {
+    background-color: transparent; 
+    box-shadow: none; 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.inventory-table th {
+    padding: 15px;
+    text-align: left;
+    background-color: #352C24; /* Dark Brown solid */
+    color: #FFA237; /* Gold text */
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 162, 55, 0.3); 
+}
+
+.inventory-table td {
+    padding: 15px;
+    text-align: left;
+    background-color: rgba(244, 244, 244, 0.9); 
+    color: #352C24; /* Dark text */
+    border-bottom: 1px solid rgba(53, 44, 36, 0.1); 
+    font-size: 14px;
+}
+
+.inventory-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Badges */
+.status {
+    padding: 5px 12px;
+    border-radius: 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-out {
+    background-color: #d9534f; /* Red */
+}
+
+.status-low {
+    background-color: #f0ad4e; /* Yellow/Orange */
+}
+
+.status-in {
+    background-color: #5cb85c; /* Green */
+}
+
+/* Action Icons */
+.action-icons i {
+    margin: 0 5px;
+    cursor: pointer;
+    color: #352C24; /* Dark Brown */
+}
+.action-icons i:hover {
+    color: #FFA237; /* Gold/Orange */
+}
+
+/* Floating "Add Item" Button */
+.add-item-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-item-btn i {
+    margin-left: 10px;
+}
+
+.add-item-btn:hover {
+    background-color: #6a2436; /* Lighter maroon */
+}
+
+
+/* --- MODAL STYLES (Add & Edit Modals) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.show-modal {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #480C1B; 
+    color: #FFF2E0; 
+    padding: 30px; 
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px; 
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.modal-title {
+    display: flex;
+    align-items: center;
+    color: #FFF2E0; /* Off-white */
+}
+
+/* Modal Icon Style */
+.modal-icon {
+    width: 40px; 
+    height: 40px;
+    margin-right: 15px;
+}
+
+.modal-title h2 {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Abril Fatface', serif; /* PRIMARY FONT */
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: #FFF2E0; /* Off-white */
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.modal-close-btn:hover {
+    opacity: 1;
+}
+
+.modal-description {
+    font-size: 14px;
+    color: #FFF2E0; /* Off-white */
+    margin-bottom: 25px;
+    border-bottom: 1px solid #6a2436; /* Lighter maroon border */
+    padding-bottom: 15px;
+    opacity: 0.9;
+}
+
+/* Modal Form Styles */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; 
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+}
+
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFF2E0; /* Off-white */
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px; 
+    border: none;
+    border-radius: 10px; 
+    background-color: #FFF2E0; 
+    color: #352C24; 
+    font-size: 16px; 
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    background-color: #fcefdc; 
+    box-shadow: 0 0 0 2px #FFA237; /* Gold outline on focus */
+}
+
+.form-group select {
+    appearance: none; 
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23352C24"><path d="M7 10l5 5 5-5z"/></svg>'); 
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px; 
+}
+
+
+.submit-btn {
+    width: 100%;
+    padding: 18px; 
+    background-color: #FFA237; 
+    color: #352C24; 
+    border: none;
+    border-radius: 10px; 
+    font-size: 18px; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; 
+    font-family: Arial, sans-serif;
+}
+
+.submit-btn:hover {
+    background-color: #ffb65a; /* Lighter gold */
+}
+
+/* --- CONFIRMATION (ADD) MODAL STYLES --- */
+.modal-overlay-confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; 
+}
+
+.modal-overlay-confirm.show-modal {
+    display: flex;
+}
+
+.modal-content-confirm {
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content-confirm h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #FFA237; /* Gold/Orange */
+    margin-bottom: 15px;
+    font-family: 'Abril Fatface', serif; /* PRIMARY FONT */
+}
+
+.modal-content-confirm p {
+    font-size: 14px;
+    color: #FFF2E0; /* Off-white */
+    margin-bottom: 25px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirm-buttons .btn {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: Arial, sans-serif;
+}
+
+.confirm-buttons .btn-cancel {
+    background-color: #FFF2E0; /* Off-white */
+    color: #352C24; /* Dark Brown */
+}
+.confirm-buttons .btn-cancel:hover {
+    background-color: #f7e6ca;
+}
+
+.confirm-buttons .btn-confirm {
+    background-color: #FFA237; /* Gold/Orange */
+    color: #352C24; /* Dark Brown */
+}
+.confirm-buttons .btn-confirm:hover {
+    background-color: #ffb65a;
+}
+
+/* --- SUCCESS MODAL STYLES --- */
+.modal-overlay-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
+}
+
+.modal-overlay-success.show-modal {
+    display: flex;
+}
+
+.modal-content-success {
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content-success i {
+    font-size: 50px;
+    color: #FFA237; /* Gold/Orange */
+    margin-bottom: 20px;
+}
+
+.modal-content-success h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #FFF2E0; /* Off-white */
+    margin-bottom: 25px;
+    font-family: 'Abril Fatface', serif; /* PRIMARY FONT */
+}
+
+.modal-content-success .btn-okay {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #FFA237; /* Gold/Orange */
+    color: #352C24; /* Dark Brown */
+    transition: background-color 0.3s;
+    font-family: Arial, sans-serif;
+}
+
+.modal-content-success .btn-okay:hover {
+    background-color: #ffb65a;
+}
+
+
+/* --- EDIT MODAL STYLES --- */
+#edit-item-modal {
+    z-index: 1000;
+}
+
+/* --- DELETE CONFIRM MODAL STYLES --- */
+#delete-confirm-modal {
+    z-index: 1001;
+}
+
+.btn-delete-cancel,
+.btn-delete-confirm {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: Arial, sans-serif;
+}
+.btn-delete-cancel {
+    background-color: #FFA237; /* Gold/Orange */
+    color: #352C24; /* Dark Brown */
+}
+.btn-delete-confirm {
+    background-color: #FFA237; /* Gold/Orange */
+    color: #352C24; /* Dark Brown */
+}
+.btn-delete-cancel:hover,
+.btn-delete-confirm:hover {
+    background-color: #ffb65a;
+}
+
+/* --- PROFILE SIDEBAR STYLES (Maroon Theme) --- */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1004;
+    display: none; 
+}
+.sidebar-overlay.show-sidebar {
+    display: block;
+}
+
+.profile-sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px; 
+    width: 300px;
+    height: 100%;
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    z-index: 1005;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+.profile-sidebar.show-sidebar {
+    right: 0; 
+}
+
+.sidebar-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #FFF2E0; 
+    font-size: 30px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.sidebar-close-btn:hover {
+    opacity: 1;
+}
+
+.profile-header {
+    padding: 40px 20px 30px 20px;
+    text-align: center;
+}
+
+.profile-pic-container {
+    width: 90px;
+    height: 90px;
+    background-color: #FFA237; /* Gold/Orange */
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-pic-container i {
+    font-size: 45px;
+    color: #352C24; /* Dark Brown */
+}
+
+.profile-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #FFF2E0; 
+    font-family: 'Abril Fatface', serif; /* PRIMARY FONT */
+}
+.profile-header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #FFF2E0; 
+    opacity: 0.9;
+}
+
+.profile-nav {
+    padding: 0;
+    flex-grow: 1; 
+}
+.profile-nav a {
+    display: block;
+    padding: 18px 30px;
+    text-decoration: none;
+    color: #FFF2E0;
+    font-size: 16px;
+    border-top: 1px solid #6a2436; /* Lighter maroon border */
+    transition: background-color 0.2s;
+}
+.profile-nav a:hover {
+    background-color: #6a2436; 
+}
+
+.profile-footer {
+    padding: 0;
+    border-top: 1px solid #6a2436;
+}
+.logout-link {
+    display: block;
+    padding: 18px 30px;
+    text-decoration: none;
+    color: #FFF2E0;
+    font-size: 16px;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+.logout-link:hover {
+    background-color: #6a2436;
+}
