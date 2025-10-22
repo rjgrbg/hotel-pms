@@ -1,13 +1,13 @@
 /* =========================================================
-   PALETTE & FONTS (From Brand Guide)
-   Primary Font: 'Abril Fatface', serif
-   Secondary Font: Arial, sans-serif
-   
-   Maroon: #480C1B
-   Gold/Orange: #FFA237
-   Off-white: #FFF2E0
-   Dark Brown: #352C24
-   =========================================================
+    PALETTE & FONTS (From Brand Guide)
+    Primary Font: 'Abril Fatface', serif
+    Secondary Font: Arial, sans-serif
+    
+    Maroon: #480C1B
+    Gold/Orange: #FFA237
+    Off-white: #FFF2E0
+    Dark Brown: #352C24
+    =========================================================
 */
 
 /* Basic Reset and Font */
@@ -15,7 +15,9 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif; /* SECONDARY FONT */
-    background-image: url('background.jpg'); 
+    /* Using a fallback background color as background.jpg is not provided */
+    background-color: #f0f0f0;
+    /* background-image: url('background.jpg'); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -82,7 +84,7 @@ body, html {
     padding: 15px 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */ /* Removed margin, tabs will handle spacing */
 }
 
 /* "INVENTORY" Title */
@@ -128,10 +130,9 @@ body, html {
     background-color: #ffffff; 
     font-family: Arial, sans-serif;
     color: #352C24;
-    box-sizing: border-box; /* Important for padding */
+    box-sizing: border-box; 
 }
 
-/* Hide default search cancel button */
 .filters-and-search input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
     appearance: none;
@@ -153,14 +154,72 @@ body, html {
     transform: translateY(-50%);
     color: #FFA237; /* Gold/Orange */
     font-weight: bold;
-    pointer-events: none; /* Icon not clickable */
+    pointer-events: none; 
 }
 
+/* === REPLACED/UPDATED ICON STYLES === */
 .history-icon {
-    font-size: 24px;
+    display: none; /* Hide old icon */
+}
+
+.refresh-icon {
+    font-size: 20px;
     color: #352C24; /* Dark Brown */
     cursor: pointer;
+    display: block; /* Show by default */
 }
+
+.download-icon {
+    font-size: 22px;
+    color: #352C24; /* Dark Brown */
+    cursor: pointer;
+    display: none; /* Hidden by default */
+}
+/* === END REPLACED/UPDATED ICON STYLES === */
+
+
+/* ======================================================= */
+/* START: NEW TAB STYLES (Your existing styles)             */
+/* ======================================================= */
+.tab-nav {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tab-link {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    background-color: #e0e0e0; /* Inactive color */
+    color: #352C24;
+    transition: background-color 0.2s, color 0.2s;
+}
+.tab-link.active {
+    background-color: #352C24; /* Dark Brown */
+    color: #FFF2E0; /* Off-white */
+}
+.tab-link:hover:not(.active) {
+    background-color: #f0f0f0;
+}
+
+.tab-content {
+    position: relative;
+}
+.tab-panel {
+    display: none; /* Hide all panels by default */
+}
+.tab-panel.active {
+    display: block; /* Show only active panel */
+}
+/* ======================================================= */
+/* END: NEW TAB STYLES                                   */
+/* ======================================================= */
+
 
 /* Table */
 .table-container {
@@ -182,7 +241,7 @@ body, html {
     text-align: left;
     background-color: #352C24; /* Dark Brown solid */
     color: #FFA237; /* Gold text */
-    font-weight: bold;
+    font-weight: 700; /* Bolder */
     font-size: 14px;
     border-bottom: 1px solid rgba(255, 162, 55, 0.3); 
 }
@@ -190,11 +249,17 @@ body, html {
 .inventory-table td {
     padding: 15px;
     text-align: left;
-    background-color: rgba(244, 244, 244, 0.9); 
+    background-color: #FFF2E0; /* Solid Off-white */
     color: #352C24; /* Dark text */
     border-bottom: 1px solid rgba(53, 44, 36, 0.1); 
     font-size: 14px;
 }
+
+/* Row Hover */
+.inventory-table tbody tr:hover td {
+    background-color: #f7e6ca; /* Slightly darker off-white on hover */
+}
+
 
 .inventory-table tr:last-child td {
     border-bottom: none;
@@ -222,11 +287,26 @@ body, html {
     background-color: #5cb85c; /* Green */
 }
 
+/* === NEW STYLES FOR HISTORY TABLE QTY CHANGE === */
+.qty-change {
+    font-weight: bold;
+}
+.qty-change.qty-in {
+    color: #5cb85c; /* Green */
+}
+.qty-change.qty-out {
+    color: #d9534f; /* Red */
+}
+/* === END NEW STYLES === */
+
 /* Action Icons */
 .action-icons i {
-    margin: 0 5px;
+    margin: 0 3px; /* Slightly less margin */
     cursor: pointer;
     color: #352C24; /* Dark Brown */
+    font-size: 16px; /* Slightly larger */
+    padding: 5px; /* Clickable area */
+    transition: color 0.2s;
 }
 .action-icons i:hover {
     color: #FFA237; /* Gold/Orange */
@@ -250,6 +330,7 @@ body, html {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     cursor: pointer;
     transition: background-color 0.3s;
+    z-index: 999; /* Ensure it's above table */
 }
 
 .add-item-btn i {
@@ -261,6 +342,8 @@ body, html {
 }
 
 
+/* --- MODAL STYLES (All your existing modal styles are here, unchanged) --- */
+/* ... (Truncated for brevity, paste your full modal/sidebar CSS here) ... */
 /* --- MODAL STYLES (Add & Edit Modals) --- */
 .modal-overlay {
     position: fixed;
@@ -280,7 +363,7 @@ body, html {
 }
 
 .modal-content {
-    background-color: #480C1B; 
+    background-color: #352C24; 
     color: #FFF2E0; 
     padding: 30px; 
     border-radius: 15px;
@@ -311,6 +394,15 @@ body, html {
     margin-right: 15px;
 }
 
+.modal-icon-fa {
+    font-size: 35px;
+    margin-right: 15px;
+    color: #FFA237;
+    width: 40px;
+    text-align: center;
+}
+
+
 .modal-title h2 {
     margin: 0;
     font-size: 24px;
@@ -334,7 +426,7 @@ body, html {
     font-size: 14px;
     color: #FFF2E0; /* Off-white */
     margin-bottom: 25px;
-    border-bottom: 1px solid #6a2436; /* Lighter maroon border */
+    border-bottom: 1px solid #4a4035; /* Darker border */
     padding-bottom: 15px;
     opacity: 0.9;
 }
@@ -348,10 +440,13 @@ body, html {
 }
 
 .form-group {
-    flex: 1;
+    flex: 1; /* Each group takes equal space in a row */
     display: flex;
     flex-direction: column;
     position: relative; 
+}
+.modal-body > .form-group {
+     margin-bottom: 15px;
 }
 
 
@@ -362,7 +457,26 @@ body, html {
     color: #FFF2E0; /* Off-white */
 }
 
+.category-group label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+.category-edit-icon {
+    color: #FFA237; /* Gold */
+    font-size: 14px; 
+    cursor: pointer;
+    margin-left: 10px; 
+    transition: color 0.2s;
+}
+.category-edit-icon:hover {
+    color: #ffb65a; /* Lighter gold */
+}
+
+
 .form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
 .form-group input[type="number"],
 .form-group input[type="date"],
 .form-group select,
@@ -399,7 +513,6 @@ body, html {
     background-position: right 15px center;
     padding-right: 40px; 
 }
-
 
 .submit-btn {
     width: 100%;
@@ -481,11 +594,11 @@ body, html {
 }
 
 .confirm-buttons .btn-cancel {
-    background-color: #FFF2E0; /* Off-white */
+    background-color: #FFA237; /* Gold/Orange */
     color: #352C24; /* Dark Brown */
 }
 .confirm-buttons .btn-cancel:hover {
-    background-color: #f7e6ca;
+    background-color: #ffb65a;
 }
 
 .confirm-buttons .btn-confirm {
@@ -525,10 +638,9 @@ body, html {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.modal-content-success i {
-    font-size: 50px;
-    color: #FFA237; /* Gold/Orange */
-    margin-bottom: 20px;
+.modal-content-success .modal-icon { 
+     display: block; 
+     margin: 0 auto 20px;
 }
 
 .modal-content-success h3 {
@@ -590,6 +702,59 @@ body, html {
 .btn-delete-confirm:hover {
     background-color: #ffb65a;
 }
+
+/* --- EDIT CATEGORY MODAL STYLES --- */
+#edit-category-modal {
+    z-index: 1001; 
+}
+
+#edit-category-modal .modal-title i.category-header-icon {
+    font-size: 24px;
+    color: #FFA237;
+    margin-right: 15px;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    max-height: 250px; 
+    overflow-y: auto;
+}
+
+.category-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #4a4035; /* Darker border */
+    font-size: 16px;
+    color: #FFF2E0;
+}
+.category-list-item:last-child {
+    border-bottom: none;
+}
+
+.category-actions i {
+    color: #FFA237;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.category-actions i:hover {
+    color: #ffb65a;
+}
+
+.category-modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px; 
+}
+.category-modal-buttons .submit-btn {
+    margin-top: 0; 
+    width: 50%; 
+}
+
 
 /* --- PROFILE SIDEBAR STYLES (Maroon Theme) --- */
 .sidebar-overlay {
@@ -708,3 +873,143 @@ body, html {
 .logout-link:hover {
     background-color: #6a2436;
 }
+
+/* ======================================================= */
+/* START: CSS FOR "EDIT ITEMS" MODAL (Your existing code) */
+/* ======================================================= */
+.form-group-static {
+    margin-bottom: 15px;
+}
+.form-group-static label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFF2E0;
+}
+.form-group-static span {
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #4a4035; 
+    color: #FFF2E0;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+.stock-adder-group {
+    flex: 1;
+}
+.stock-input-wrapper {
+    display: flex;
+    align-items: center;
+}
+.stock-input-wrapper input[type="number"] {
+    text-align: center;
+    border-radius: 0;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+.stock-input-wrapper input[type="number"]::-webkit-inner-spin-button,
+.stock-input-wrapper input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.stock-btn {
+    width: 50px; 
+    padding: 15px;
+    border: none;
+    background-color: #FFA237;
+    color: #352C24;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.stock-btn:hover {
+    background-color: #ffb65a;
+}
+#stock-subtract-btn {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#stock-add-btn {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.edit-modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.edit-modal-buttons .submit-btn {
+    margin-top: 0;
+    width: 50%;
+}
+.btn-delete-inline {
+    background-color: #FFA237;
+    color: #352C24;
+}
+.btn-delete-inline:hover {
+    background-color: #ffb65a;
+}
+/* ======================================================= */
+/* END: CSS FOR "EDIT ITEMS" MODAL                         */
+/* ======================================================= */
+
+
+/* ======================================================= */
+/* START: STYLES FOR ACCOUNT DETAILS MODALS (FROM IMAGE) */
+/* ======================================================= */
+
+/* Styles for the new "Account Details" modal header */
+.account-modal-header .modal-title {
+    align-items: flex-start;
+}
+.account-modal-header .profile-pic-container {
+    background-color: #FFA237; /* Gold/Orange */
+    color: #352C24; /* Dark Brown */
+}
+.account-modal-header .profile-pic-container i {
+     color: #352C24; /* Dark Brown */
+}
+
+/* Styles for the "Save Success" modal icon */
+#save-success-modal .success-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    background-color: #352C24; /* Dark Brown */
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#save-success-modal .success-icon-wrapper i {
+    color: #FFA237; /* Gold/Orange */
+    font-size: 45px;
+    font-weight: bold;
+}
+/* ======================================================= */
+/* END: STYLES FOR ACCOUNT DETAILS MODALS                */
+/* ======================================================= */
+
+/* ======================================================= */
+/* START: NEW MODAL ICONS (FOR LOGOUT & DOWNLOAD)        */
+/* ======================================================= */
+.modal-overlay-confirm .modal-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    background-color: #352C24; /* Dark Brown */
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-overlay-confirm .modal-icon-wrapper i {
+    color: #FFA237; /* Gold/Orange */
+    font-size: 45px;
+    font-weight: bold;
+}
+/* ======================================================= */
+/* END: NEW MODAL ICONS                                  */
+/* ======================================================= */

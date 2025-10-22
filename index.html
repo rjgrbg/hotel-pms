@@ -36,119 +36,181 @@
                 <select name="category" id="category-filter">
                     <option value="">Category</option>
                     <option value="electrical">Electrical</option>
-                    <option value="cleaning solution">Cleaning solution</option> </select>
+                    <option value="cleaning solution">Cleaning solution</option> 
+                    <option value="furniture & fixtures">Furniture & Fixtures</option> 
+                    <option value="room amenities">Room Amenities</option> 
+                </select>
                 <select name="status" id="status-filter">
                     <option value="">Status</option>
-                    <option value="out of stock">Out of Stock</option> <option value="low stock">Low Stock</option>     </select>
+                    <option value="out of stock">Out of Stock</option> 
+                    <option value="low stock">Low Stock</option>     
+                    <option value="in stock">In Stock</option> 
+                </select>
                 <div class="search-container">
                     <input type="search" id="search-bar" placeholder="Search">
                     <i class="fas fa-search search-icon"></i>
                 </div>
-                <i class="fas fa-history history-icon"></i>
+                
+                <i class="fas fa-sync-alt refresh-icon" id="refresh-icon" title="Refresh Stocks"></i>
+                <i class="fas fa-download download-icon" id="download-icon" title="Download History"></i>
             </div>
         </nav>
 
-        <div class="table-container">
-            <table class="inventory-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Quantity</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                        <th>Damage</th>
-                        <th>Stock In Date</th>
-                        <th>Stock Out Date</th>
-                        <th></th> 
-                    </tr>
-                </thead>
-                <tbody id="inventory-body">
-                    <tr 
-                        data-name="Liquid Detergent" 
-                        data-quantity="0" 
-                        data-category="Cleaning solution" 
-                        data-stockindate="2025-10-10" 
-                        data-description="All-Purpose Cle...">
-                        
-                        <td>101</td>
-                        <td>Liquid Detergent</td>
-                        <td>Cleaning solution</td>
-                        <td>-</td>
-                        <td>All-Purpose Cle...</td>
-                        <td><span class="status status-out">Out of Stock</span></td>
-                        <td>No Damage</td>
-                        <td>10/10/25 14:30</td>
-                        <td>10/10/25 14:30</td>
-                        <td class="action-icons">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-                    <tr 
-                        data-name="Electrical Tape" 
-                        data-quantity="1" 
-                        data-category="Electrical" 
-                        data-stockindate="2025-09-10" 
-                        data-description="Insulating tape f...">
-                        
-                        <td>101</td> 
-                        <td>Electrical Tape</td>
-                        <td>Electrical</td>
-                        <td>1</td>
-                        <td>Insulating tape f...</td>
-                        <td><span class="status status-low">Low Stock</span></td>
-                        <td>No Damage</td>
-                        <td>09/10/25 14:30</td>
-                        <td>-</td>
-                        <td class="action-icons">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-                    <tr 
-                        data-name="Light Bulb" 
-                        data-quantity="0" 
-                        data-category="Electrical" 
-                        data-stockindate="2025-09-10" 
-                        data-description="Standard LED b...">
-                        
-                        <td>101</td> 
-                        <td>Light Bulb</td>
-                        <td>Electrical</td>
-                        <td>-</td>
-                        <td>Standard LED b...</td>
-                        <td><span class="status status-out">Out of Stock</span></td>
-                        <td>Burnt Out</td>
-                        <td>09/10/25 14:30</td>
-                        <td>10/10/25 14:30</td>
-                        <td class="action-icons">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <nav class="tab-nav">
+            <button class="tab-link active" data-tab-target="#stocks-panel">Stocks</button>
+            <button class="tab-link" data-tab-target="#history-panel">History</button>
+        </nav>
+
+        <div class="tab-content">
+
+            <div class="tab-panel active" id="stocks-panel">
+                <div class="table-container">
+                    <table class="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Damage</th>
+                                <th>Stock In Date</th>
+                                <th>Stock Out Date</th>
+                                <th></th> 
+                            </tr>
+                        </thead>
+                        <tbody id="inventory-body">
+                            <tr 
+                                data-name="Liquid Detergent" 
+                                data-quantity="0" 
+                                data-category="Cleaning solution" 
+                                data-stockindate="2025-10-10" 
+                                data-description="All-Purpose Cle...">
+                                
+                                <td>101</td>
+                                <td>Liquid Detergent</td>
+                                <td>Cleaning solution</td>
+                                <td>-</td>
+                                <td>All-Purpose Cle...</td>
+                                <td><span class="status status-out">Out of Stock</span></td>
+                                <td>No Damage</td>
+                                <td>10/10/25 14:30</td>
+                                <td>10/10/25 14:30</td>
+                                <td class="action-icons">
+                                    <i class="fas fa-edit" title="Edit Item"></i>
+                                    <i class="fas fa-trash" title="Delete Item"></i>
+                                </td>
+                            </tr>
+                            <tr 
+                                data-name="Electrical Tape" 
+                                data-quantity="1" 
+                                data-category="Electrical" 
+                                data-stockindate="2025-09-10" 
+                                data-description="Insulating tape f...">
+                                
+                                <td>101</td> 
+                                <td>Electrical Tape</td>
+                                <td>Electrical</td>
+                                <td>1</td>
+                                <td>Insulating tape f...</td>
+                                <td><span class="status status-low">Low Stock</span></td>
+                                <td>No Damage</td>
+                                <td>09/10/25 14:30</td>
+                                <td>-</td>
+                                <td class="action-icons">
+                                        <i class="fas fa-edit" title="Edit Item"></i>
+                                    <i class="fas fa-trash" title="Delete Item"></i>
+                                </td>
+                            </tr>
+                            <tr 
+                                data-name="Light Bulb" 
+                                data-quantity="0" 
+                                data-category="Electrical" 
+                                data-stockindate="2025-09-10" 
+                                data-description="Standard LED b...">
+                                
+                                <td>101</td> 
+                                <td>Light Bulb</td>
+                                <td>Electrical</td>
+                                <td>-</td>
+                                <td>Standard LED b...</td>
+                                <td><span class="status status-out">Out of Stock</span></td>
+                                <td>Burnt Out</td>
+                                <td>09/10/25 14:30</td>
+                                <td>10/10/25 14:30</td>
+                                <td class="action-icons">
+                                        <i class="fas fa-edit" title="Edit Item"></i>
+                                    <i class="fas fa-trash" title="Delete Item"></i>
+                                </td>
+                            </tr>
+                             <tr 
+                                data-name="Light Bulb" 
+                                data-quantity="20" 
+                                data-category="Electrical" 
+                                data-stockindate="2025-09-10" 
+                                data-description="Standard LED b...">
+                                
+                                <td>101</td> 
+                                <td>Light Bulb</td>
+                                <td>Electrical</td>
+                                <td>20</td>
+                                <td>Standard LED b...</td>
+                                <td><span class="status status-in">In Stock</span></td>
+                                <td>No Damage</td>
+                                <td>09/10/25 14:30</td>
+                                <td>-</td>
+                                <td class="action-icons">
+                                        <i class="fas fa-edit" title="Edit Item"></i>
+                                    <i class="fas fa-trash" title="Delete Item"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+
+            <div class="tab-panel" id="history-panel">
+                <div class="table-container">
+                    <table class="inventory-table" id="history-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Quantity Change</th>
+                                <th>Status</th>
+                                <th>Damage</th>
+                                <th>Stock In Date</th>
+                                <th>Stock Out Date</th>
+                                <th>Action Type</th>
+                                <th>Performed By</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div> 
     </main> 
     
+
 <div class="modal-overlay" id="add-item-modal">
     <div class="modal-content">
-        
         <div class="modal-header">
             <div class="modal-title">
-                <img src="inventory.jpg" alt="Add Item Icon" class="modal-icon"> 
+                <i class="fas fa-boxes-stacked modal-icon-fa"></i>
                 <h2>Add Item</h2>
             </div>
             <button class="modal-close-btn" id="modal-close-btn">&times;</button>
         </div>
-
         <p class="modal-description">
             Please fill out the item details carefully before adding them to the inventory. 
             Ensure that all information is accurate to maintain proper stock records.
         </p>
-
         <div class="modal-body">
             <form id="add-item-form">
                 <div class="form-row">
@@ -156,32 +218,31 @@
                         <label for="item-name">Name</label>
                         <input type="text" id="item-name" required>
                     </div>
-                    <div class="form-group">
-                        <label for="item-quantity">Quantity</label>
-                        <input type="number" id="item-quantity" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="item-category">Category</label>
+                     <div class="form-group category-group">
+                        <label for="item-category">Category 
+                            <i class="fas fa-pencil-alt category-edit-icon" id="add-category-edit-icon" title="Edit Categories"></i>
+                        </label>
                         <select id="item-category" required>
                             <option value="" disabled selected>Select a category</option>
+                            <option value="Cleaning solution">Cleaning Solution</option>
                             <option value="Electrical">Electrical</option>
-                            <option value="Cleaning solution">Cleaning solution</option>
-                            <option value="Linens">Linens</option>
-                            <option value="Other">Other</option>
+                            <option value="Furniture & Fixtures">Furniture & Fixtures</option>
+                            <option value="Room Amenities">Room Amenities</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="stock-in-date">Stock In Date</label>
-                        <input type="date" id="stock-in-date" required>
-                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="item-description">Description</label>
+                <div class="form-group"> <label for="item-description">Description</label>
                     <textarea id="item-description" rows="3"></textarea>
                 </div>
-                
+                 <div class="form-row"> <div class="form-group">
+                    <label for="item-quantity">Quantity</label>
+                    <input type="number" id="item-quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="stock-in-date">Stock In Date</label>
+                    <input type="date" id="stock-in-date" required>
+                </div>
+                </div>
                 <button type="submit" class="submit-btn">ADD ITEM</button>
             </form>
         </div>
@@ -204,9 +265,7 @@
 
 <div class="modal-overlay-success" id="success-modal">
     <div class="modal-content-success">
-        <i class="fas fa-boxes-stacked" style="font-size: 50px; color: #FFA237; margin-bottom: 15px; display: block;"></i>
-        <i class="fas fa-check-circle" style="font-size: 30px; color: #FFA237; margin-bottom: 25px; display: block;"></i>
-        
+        <img src="inventory.jpg" alt="Success Icon" class="modal-icon" style="display: block; margin: 0 auto 20px;">
         <h3>Item Added Successfully</h3>
         <button type="button" class="btn btn-okay" id="success-okay-btn">OKAY</button>
     </div>
@@ -214,59 +273,73 @@
 
 <div class="modal-overlay" id="edit-item-modal"> 
     <div class="modal-content">
-        
         <div class="modal-header">
-             <div class="modal-title">
-                <img src="inventory.jpg" alt="Edit Item Icon" class="modal-icon"> 
-                <h2>Edit Item</h2>
+            <div class="modal-title">
+                <h2>Edit Items</h2>
             </div>
              <button class="modal-close-btn" id="edit-modal-close-btn">&times;</button>
         </div>
-
-        <p class="modal-description">
-           You can update the details of this item below. Make sure all information is
-           accurate before saving the changes to keep the inventory records up to date.
-        </p>
-
         <div class="modal-body">
             <form id="edit-item-form">
                 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="edit-item-name">Name</label>
-                        <input type="text" id="edit-item-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="edit-item-quantity">Quantity</label>
-                        <input type="number" id="edit-item-quantity" required>
-                    </div>
+                <div class="form-group-static">
+                    <label>ID</label>
+                    <span id="edit-item-id">101</span>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="edit-item-category">Category</label>
-                        <select id="edit-item-category" required>
-                            <option value="Electrical">Electrical</option>
-                            <option value="Cleaning solution">Cleaning solution</option>
-                            <option value="Linens">Linens</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="edit-stock-in-date">Stock In Date</label>
-                        <input type="date" id="edit-stock-in-date" required>
-                    </div>
+
+                <div class="form-group">
+                    <label for="edit-item-name">Name</label>
+                    <input type="text" id="edit-item-name" required>
                 </div>
+                
+                <div class="form-group category-group">
+                    <label for="edit-item-category">Category
+                        <i class="fas fa-pencil-alt category-edit-icon" id="edit-category-edit-icon" title="Edit Categories"></i>
+                    </label>
+                    <select id="edit-item-category" required>
+                        <option value="Cleaning solution">Cleaning Solution</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Furniture & Fixtures">Furniture & Fixtures</option>
+                        <option value="Room Amenities">Room Amenities</option>
+                    </select>
+                </div>
+
                 <div class="form-group">
                     <label for="edit-item-description">Description</label>
                     <textarea id="edit-item-description" rows="3"></textarea>
                 </div>
-                
-                <button type="submit" class="submit-btn">SAVE CHANGES</button>
+
+                <div class="form-row">
+                    <div class="form-group stock-adder-group">
+                        
+                        <label for="edit-item-add-stock">Adjust Stock</label>
+                        
+                        <div class="stock-input-wrapper">
+                            <button type="button" class="stock-btn" id="stock-subtract-btn">-</button>
+                            
+                            <input type="number" id="edit-item-add-stock" value="0">
+                            
+                            <button type="button" class="stock-btn" id="stock-add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-item-status">Status</label>
+                        <select id="edit-item-status" required>
+                            <option value="In Stock">In Stock</option>
+                            <option value="Low Stock">Low Stock</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="edit-modal-buttons">
+                    <button type="button" class="submit-btn btn-delete-inline" id="edit-modal-delete-btn">DELETE</button>
+                    <button type="submit" class="submit-btn">SAVE CHANGES</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
-
 <div class="modal-overlay" id="delete-confirm-modal">
     <div class="modal-content-confirm" style="max-width: 480px;">
         <h3>Are you sure you want to delete this item from the inventory?</h3>
@@ -281,6 +354,8 @@
     </div>
 </div>
 
+<div class="modal-overlay" id="edit-category-modal">
+    </div>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <aside class="profile-sidebar" id="profile-sidebar">
@@ -288,26 +363,153 @@
     
     <div class="profile-header">
         <div class="profile-pic-container">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user-tie"></i>
         </div>
-        <h3>Elmer Bagayan</h3>
-        <p>Inventory Head</p>
+        <h3>Juan Baguian</h3>
+        <p>B-VERIFYC-01</p>
     </div>
 
     <nav class="profile-nav">
-        <a href="#">Account Details</a>
-    </nav>
-
+        <a href="#" id="account-details-link">
+            <i class="fas fa-user-edit" style="margin-right: 10px;"></i> Account Details
+        </a>
+        </nav>
+    
     <div class="profile-footer">
-        <a href="#" class="logout-link">Logout</a>
+        <a href="#" class="logout-link" id="logout-link">
+            <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Logout
+        </a>
     </div>
 </aside>
-
-
 <button class="add-item-btn">
     ADD ITEM
     <i class="fas fa-plus"></i>
 </button>
+
+
+<div class="modal-overlay" id="account-details-modal">
+    <div class="modal-content" style="max-width: 700px;"> <div class="modal-header account-modal-header">
+            <div class="modal-title">
+                <div class="profile-pic-container" style="width: 60px; height: 60px; margin-right: 15px;">
+                     <i class="fas fa-user-tie" style="font-size: 30px;"></i>
+                </div>
+                <div>
+                    <h2 style="margin: 0; font-size: 20px;">Juan Baguian</h2>
+                    <p style="margin: 0; font-size: 14px; opacity: 0.8;">B-VERIFYC-01</p>
+                    <p style="margin: 5px 0 0; font-size: 12px; opacity: 0.8;">Inventory Management Head</p>
+                </div>
+            </div>
+            <button class="modal-close-btn" id="account-modal-close-btn">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <form id="account-details-form">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="acc-first-name">First Name</label>
+                        <input type="text" id="acc-first-name" value="Juan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="acc-email">Email Address</label>
+                        <input type="email" id="acc-email" value="juan@hotelcelestia.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="acc-middle-name">Middle Name (Optional)</label>
+                        <input type="text" id="acc-middle-name" value="Constant">
+                    </div>
+                    <div class="form-group">
+                        <label for="acc-username">Username</label>
+                        <input type="text" id="acc-username" value="demouname" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="acc-last-name">Last Name</label>
+                        <input type="text" id="acc-last-name" value="Baguian" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="acc-password">Password</label>
+                        <input type="password" id="acc-password" value="••••••••" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group" style="flex: 2;"> <label>Birthday</label>
+                        <div class="form-row" style="margin-bottom: 0; gap: 10px;">
+                             <div class="form-group" style="flex: 3;">
+                                <input type="text" id="acc-bday-month" value="10/25/2024" required>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="flex: 3;">
+                        <label for="acc-contact">Contact</label>
+                        <input type="text" id="acc-contact" value="992222222" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="acc-address">Address</label>
+                    <textarea id="acc-address" rows="2">Block 1 Lot 2, Quezon City</textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">SAVE CHANGES</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay-confirm" id="save-confirm-modal">
+    <div class="modal-content-confirm">
+        <h3>Are you sure you want to save information?</h3>
+        <p>
+            Please double-check all entered details before
+            proceeding. Once confirmed, your account will be
+            updated.
+        </p>
+        <div class="confirm-buttons">
+            <button type="button" class="btn btn-cancel" id="save-cancel-btn">CANCEL</button>
+            <button type="button" class="btn btn-confirm" id="save-confirm-btn">YES, UPDATE</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay-success" id="save-success-modal">
+    <div class="modal-content-success">
+        <div class="success-icon-wrapper">
+            <i class="fas fa-check"></i>
+        </div>
+        <h3>Save Changes Successfully</h3>
+        <button type="button" class="btn btn-okay" id="save-success-okay-btn">OKAY</button>
+    </div>
+</div>
+
+<div class="modal-overlay-confirm" id="logout-confirm-modal">
+    <div class="modal-content-confirm">
+        <div class="modal-icon-wrapper" style="margin-bottom: 20px;">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
+        <h3>Are you sure you want to log out of your account?</h3>
+        <div class="confirm-buttons">
+            <button type="button" class="btn btn-cancel" id="logout-cancel-btn">CANCEL</button>
+            <button type="button" class="btn btn-confirm" id="logout-confirm-btn">YES, LOGOUT</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay-confirm" id="download-history-modal">
+    <div class="modal-content-confirm">
+        <div class="modal-icon-wrapper" style="margin-bottom: 20px;">
+            <i class="fas fa-download"></i>
+        </div>
+        <h3>Download File?</h3>
+        <button type="button" class="btn btn-confirm" id="download-history-btn" style="width: 80%; max-width: 200px;">DOWNLOAD</button>
+    </div>
+</div>
 
 <script src="script.js"></script>
 
