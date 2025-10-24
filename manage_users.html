@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users - The Celestia Hotel</title>
+    <link rel="stylesheet" href="manage_users.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Arial:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <aside class="main-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-profile-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <h3>Jose Admiral</h3>
+            <p>Admin</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="#"><i class="fas fa-concierge-bell"></i> Housekeeping</a>
+            <a href="#"><i class="fas fa-tools"></i> Maintenance</a>
+            <a href="#"><i class="fas fa-parking"></i> Parking</a>
+            <a href="#"><i class="fas fa-box-open"></i> Inventory</a>
+            <a href="#" class="active"><i class="fas fa-users-cog"></i> Manage Users</a>
+        
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </aside>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="celestia-logo.jpg" alt="Celestia Hotel Logo" class="header-logo">
+            <span class="logo-text">THE CELESTIA HOTEL</span>
+        </div>
+    </header>
+
+    <main class="content-area">
+        <nav class="controls-bar">
+            <div class="inventory-title">
+                <h1 class="inventory-text">Manage Users</h1>
+            </div>
+
+            <div class="filters-and-search">
+                <select name="role" id="role-filter">
+                    <option value="">Role</option>
+                    <option value="Administrator">Administrator</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Housekeeper">Housekeeper</option>
+                    <option value="Carpenter">Carpenter</option>
+                    <option value="Electrical Engineer">Electrical Engineer</option>
+                    <option value="Plumber">Plumber</option>
+                    <option value="Technician">Technician</option>
+                </select>
+                <select name="shift" id="shift-filter">
+                    <option value="">Shift</option>
+                    <option value="Day">Day</option>
+                    <option value="Night">Night</option>
+                </select>
+                <div class="search-container">
+                    <input type="search" id="search-bar" placeholder="Search">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <i class="fas fa-download download-icon" id="download-icon" title="Download User List/Logs"></i>
+            </div>
+        </nav>
+
+        <nav class="tab-nav">
+            <button class="tab-link active" data-tab-target="#users-panel">User Management</button>
+            <button class="tab-link" data-tab-target="#logs-panel">User Logs</button>
+        </nav>
+
+        <div class="tab-content">
+            <div class="tab-panel active" id="users-panel">
+                <div class="table-container">
+                    <table class="employees-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Middle</th>
+                                <th>Last Name</th>
+                                <th>Birthday</th>
+                                <th>Contact</th>
+                                <th>Account Type</th>
+                                <th>Role</th>
+                                <th>Shift</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employees-body">
+                            <tr class="clickable-row">
+                                <td>801</td>
+                                <td>Juan</td>
+                                <td>Constant</td>
+                                <td>Bagayan</td>
+                                <td>10/25/2004</td>
+                                <td>0922222222</td>
+                                <td>Administrator</td>
+                                <td>Housekeeper</td>
+                                <td>Day</td>
+                                <td>juandelacruz</td>
+                                <td>juan@gmail.com</td>
+                                <td>Block 1 Lot 2, Quezon City</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="logs-panel">
+                <div class="table-container">
+                    <table class="logs-table employees-table">
+                        <thead>
+                            <tr>
+                                <th>Log ID</th>
+                                <th>User ID</th>
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Middle Name</th>
+                                <th>Account Type</th>
+                                <th>Role</th>
+                                <th>Shift</th>
+                                <th>Username</th>
+                                <th>Email Address</th>
+                                <th>Action Type</th>
+                                <th>Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logs-body">
+                            <tr>
+                                <td>1001</td>
+                                <td>801</td>
+                                <td>Dela Cruz</td>
+                                <td>Juan</td>
+                                <td>Bagayan</td>
+                                <td>Administrator</td>
+                                <td>Housekeeping Manager</td>
+                                <td>Day</td>
+                                <td>juandelacruz</td>
+                                <td>juandelacruz@hotel.com</td> 
+                                <td>Logged In</td>
+                                <td>2025-10-21 07:55 AM</td>
+                            </tr>
+                            <tr>
+                                <td>1002</td>
+                                <td>801</td>
+                                <td>Dela Cruz</td>
+                                <td>Juan</td>
+                                <td>Bagayan</td>
+                                <td>Administrator</td>
+                                <td>Housekeeping Manager</td>
+                                <td>Day</td>
+                                <td>juandelacruz</td>
+                                <td>juandelacruz@hotel.com</td>
+                                <td>Logged Out</td>
+                                <td>2025-10-21 07:56 AM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay-edit" id="slide-modal-overlay">
+        
+        <div class="edit-user-modal" id="edit-user-modal">
+            
+            <div class="edit-user-modal-header">
+                <div class="header-profile-icon">
+                    <div class="icon-bg">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h2 id="edit-modal-title">Add New Employee</h2> 
+                        <p id="edit-modal-id">ID: NEW</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn" id="slide-modal-close-btn">&times;</button>
+            </div>
+            
+            <div class="edit-user-modal-body">
+                <form id="edit-user-form">
+                    
+                    <div class="form-group">
+                        <label for="edit-first-name">First Name</label>
+                        <input type="text" id="edit-first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email Address</label>
+                        <input type="email" id="edit-email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-middle-name">Middle Name (Optional)</label>
+                        <input type="text" id="edit-middle-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-username">Username</label>
+                        <input type="text" id="edit-username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-last-name">Last Name</label>
+                        <input type="text" id="edit-last-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-account-type">Account Type</label>
+                        <select id="edit-account-type">
+                            <option value="Administrator">Administrator</option>
+                            <option value="Housekeeping Manager">Housekeeping Manager</option>
+                            <option value="Maintenance Manager">Maintenance Manager</option>
+                            <option value="Inventory Manager">Inventory Manager</option>
+                            <option value="Parking Manager">Parking Manager</option>
+                            <option value="Housekeeping Staff">Housekeeping Staff</option>
+                            <option value="Maintenance Staff">Maintenance Staff</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row-flex">
+                        <div class="form-group">
+                            <label for="edit-birthday">Birthday</label>
+                            <div class="input-with-icon">
+                                <input type="text" id="edit-birthday" placeholder="MM/DD/YYYY">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-contact">Contact</label>
+                            <input type="text" id="edit-contact">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-role">Role</label>
+                        <select id="edit-role">
+                            <option value="Administrator">Administrator</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Housekeeper">Housekeeper</option>
+                            <option value="Carpenter">Carpenter</option>
+                            <option value="Electrical Engineer">Electrical Engineer</option>
+                            <option value="Plumber">Plumber</option>
+                            <option value="Technician">Technician</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-address">Address</label>
+                        <textarea id="edit-address" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-row-flex" id="add-user-button-container">
+                        <div class="form-group">
+                            <label for="edit-shift">Shift</label>
+                            <select id="edit-shift">
+                                <option value="Day">Day</option>
+                                <option value="Night">Night</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-add-user" id="btn-add-user-save">ADD USER</button>
+                    </div>
+
+                    <div></div> 
+
+                    <div class="modal-body-actions">
+                        <i class="fas fa-trash-alt action-icon trash" id="modal-delete-button" title="Delete User"></i>
+                        <i class="fas fa-pencil-alt action-icon edit" id="modal-action-button" title="Save Changes"></i> 
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    <button class="add-employee-btn" id="add-employee-btn">
+        Add Employee <i class="fas fa-plus"></i>
+    </button>
+
+    
+    <div class="modal-overlay-confirm" id="logout-confirm-modal">
+        <div class="modal-content-confirm">
+            <div class="modal-icon-wrapper" style="margin-bottom: 20px;">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <h3>Are you sure you want to log out of your account?</h3>
+            <div class="confirm-buttons">
+                <button type="button" class="btn btn-cancel" id="logout-cancel-btn">CANCEL</button>
+                <button type="button" class="btn btn-confirm" id="logout-confirm-btn">YES, LOGOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay-confirm" id="add-user-confirm-modal">
+        <div class="modal-content-confirm">
+            <h3>Are you sure you want to add this new user?</h3>
+            <p>
+                Please double-check all entered details before
+                proceeding. Once confirmed, the user account will be
+                created with the assigned role and shift.
+            </p>
+            <div class="confirm-buttons">
+                <button type="button" class="btn btn-cancel" id="add-user-cancel-btn">CANCEL</button>
+                <button type="button" class="btn btn-confirm" id="add-user-confirm-btn">YES, ADD USER</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay-confirm" id="delete-confirm-modal">
+        <div class="modal-content-confirm">
+            <h3>Are you sure you want to delete this user account?</h3>
+            <p>
+                Once deleted, all associated information and access
+                permissions will be permanently removed from the
+                system.
+            </p>
+            <div class="confirm-buttons">
+                <button type="button" class="btn btn-cancel" id="delete-cancel-btn">CANCEL</button>
+                <button type="button" class="btn btn-confirm btn-delete-confirm" id="delete-confirm-btn">YES, DELETE USER</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-overlay-confirm" id="download-confirm-modal">
+        <div class="modal-content-confirm">
+            <div class="modal-icon-wrapper" style="margin-bottom: 20px;">
+                <i class="fas fa-download"></i>
+            </div>
+            <h3>Download File?</h3>
+            <div class="confirm-buttons" style="justify-content: center;">
+                <button type="button" class="btn btn-confirm" id="download-confirm-btn" style="width: 60%;">DOWNLOAD</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-overlay-success" id="success-modal">
+        <div class="modal-content-success">
+            <div class="success-icon-wrapper">
+                <i class="fas fa-user-plus" id="success-icon"></i>
+            </div>
+            <h3 id="success-message">User Added Successfully</h3>
+            <button type="button" class="btn btn-okay" id="success-okay-btn">OKAY</button>
+        </div>
+    </div>
+
+    <script src="manage_users.js"></script>
+</body>
+</html>

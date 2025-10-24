@@ -1,0 +1,769 @@
+/* =========================================================
+PALETTE & FONTS
+Primary Font: 'Abril Fatface', serif
+Secondary Font: Arial, sans-serif
+
+Maroon: #480C1B
+Dark Brown: #352C24
+Gold/Orange: #FFA237
+Off-white: #FFF2E0
+Light Background: #f4f7fa
+White: #FFFFFF
+Red: #d9534f
+=========================================================
+*/
+
+/* Basic Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa; /* Light Background */
+    min-height: 100vh;
+}
+
+/* ======================================================= */
+/* 1. TOP HEADER */
+/* ======================================================= */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    /* --- BINAGO KO ITO --- */
+    background-color: #480C1B; /* Maroon */ 
+    color: #FFF2E0; /* Off-white text for logo */
+    /* --- END NG BINAGO --- */
+    font-family: 'Abril Fatface', serif;
+    position: fixed;
+    top: 0;
+    left: 260px; /* Make space for sidebar */
+    right: 0;
+    z-index: 998;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 35px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 700;
+    /* --- BINAGO KO ITO --- */
+    color: #FFA237; /* Gold/Orange */ 
+    /* --- END NG BINAGO --- */
+}
+
+/* ======================================================= */
+/* 2. LEFT SIDEBAR */
+/* ======================================================= */
+.main-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid #6d2a3a;
+}
+
+.sidebar-profile-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #007BFF; /* Primary Blue */
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 40px;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-family: 'Abril Fatface', serif;
+    font-size: 20px;
+}
+
+.sidebar-header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    padding-top: 15px;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 18px 30px;
+    text-decoration: none;
+    color: #FFF2E0;
+    font-size: 16px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav a i {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-nav a:hover {
+    background-color: #6d2a3a;
+}
+
+.sidebar-nav a.active {
+    background-color: #FFA237; /* Gold/Orange */
+    color: #352C24;
+    font-weight: bold;
+}
+
+.sidebar-footer {
+    border-top: 1px solid #6d2a3a;
+}
+
+.sidebar-footer a {
+    display: block;
+    padding: 20px 30px;
+    text-decoration: none;
+    color: #FFF2E0;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-footer a:hover {
+    background-color: #d9534f;
+    color: #FFFFFF;
+}
+
+.sidebar-footer a i {
+    margin-right: 15px;
+}
+
+/* ======================================================= */
+/* 3. MAIN CONTENT AREA */
+/* ======================================================= */
+.content-area {
+    margin-left: 260px;
+    padding: 20px;
+    padding-top: 85px;
+}
+
+/* Controls Bar */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.inventory-title .inventory-text {
+    margin: 0;
+    font-family: 'Abril Fatface', serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #480C1B; /* Maroon */
+}
+
+.filters-and-search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filters-and-search select,
+.filters-and-search input[type="search"] {
+    padding: 10px 40px 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    color: #352C24;
+    box-sizing: border-box;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-container .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFA237; /* Gold icon */
+    pointer-events: none;
+}
+.filters-and-search input[type="search"] {
+    padding-right: 40px; /* Make space for icon */
+}
+
+.download-icon {
+    font-size: 22px;
+    color: #352C24;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.download-icon:hover {
+    color: #FFA237;
+}
+
+/* Tab Navigation */
+.tab-nav {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    color: #352C24;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.tab-link.active {
+    background-color: #FFFFFF; /* White */
+    color: #480C1B; /* Maroon */
+}
+
+.tab-link:hover:not(.active) {
+    background-color: #f0f0f0;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* ======================================================= */
+/* 4. TABLES (Employees & Logs) */
+/* ======================================================= */
+.table-container {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 0 8px 8px 8px; /* Match tab rounding */
+    overflow-x: auto;
+}
+
+.employees-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.employees-table th {
+    padding: 15px;
+    text-align: left;
+    background-color: #f9f9f9;
+    color: #480C1B; /* Maroon */
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 2px solid #f0f0f0;
+    white-space: nowrap;
+}
+
+.employees-table td {
+    padding: 15px;
+    text-align: left;
+    background-color: #FFFFFF;
+    color: #352C24;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.employees-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.employees-table tbody tr.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.employees-table tbody tr.clickable-row:hover td {
+    background-color: #FFF2E0; /* Off-white hover */
+}
+
+/* ======================================================= */
+/* 5. EDIT/ADD USER MODAL (Centered) - MAJOR UPDATE */
+/* ======================================================= */
+.modal-overlay-edit { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 1004;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay-edit.show-modal {
+    display: flex; 
+}
+
+.edit-user-modal { 
+    background-color: #352C24; /* Dark Brown */
+    color: #FFF2E0;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 800px; 
+    max-height: 90vh; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+.edit-user-modal-header {
+    padding: 20px 30px;
+    border-bottom: 1px solid #4a4035; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.edit-user-modal-header .header-profile-icon {
+     display: flex;
+     align-items: center;
+     gap: 15px;
+}
+.edit-user-modal-header .header-profile-icon .icon-bg {
+     background-color: #007BFF;
+     border-radius: 50%;
+     width: 50px;
+     height: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #FFF;
+     font-size: 24px;
+}
+
+.edit-user-modal-header h2 {
+    margin: 0;
+    font-family: 'Abril Fatface', serif;
+    font-size: 24px;
+    color: #FFA237; /* Gold title */
+}
+
+.edit-user-modal-header p {
+    margin: 2px 0 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: #FFF2E0;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.7;
+    padding: 0; 
+    line-height: 1; 
+}
+
+.modal-close-btn:hover {
+    opacity: 1;
+}
+
+.edit-user-modal-body {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto; 
+}
+
+/* Form Styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFF2E0;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px; 
+    border: none;
+    border-radius: 8px; 
+    background-color: #FFF2E0; 
+    color: #352C24; 
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    height: 47px; /* Para pantay-pantay */
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px; 
+    height: auto; 
+}
+
+#edit-user-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; 
+}
+
+.form-row-flex {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end; 
+}
+
+.form-row-flex .form-group {
+   flex: 1;
+   margin-bottom: 0; 
+}
+
+/* Style para sa "ADD USER" button */
+.btn-add-user {
+    background-color: #FFA237; /* Gold */
+    color: #352C24; /* Dark Brown */
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 47px; /* Match input height */
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+}
+
+.btn-add-user:hover {
+    background-color: #ffb65a; /* Lighter Gold */
+}
+
+/* I-style 'yung container ng mga icon (para sa EDIT) */
+.modal-body-actions {
+    display: flex;
+    justify-content: flex-end; /* I-align sa kanan */
+    gap: 15px; /* Space between icons */
+    align-items: center;
+    margin-top: 10px; 
+}
+
+.modal-body-actions .action-icon {
+    font-size: 24px;
+    color: #FFF2E0; 
+    opacity: 0.8;
+    cursor: pointer;
+    transition: opacity 0.2s, color 0.2s;
+    padding: 5px;
+}
+
+.modal-body-actions .action-icon:hover {
+    opacity: 1;
+}
+
+.modal-body-actions .action-icon.trash:hover {
+    color: #d9534f; /* Red */
+}
+
+.modal-body-actions .action-icon.edit:hover,
+.modal-body-actions .action-icon.save:hover { 
+    color: #FFA237; /* Gold */
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #FFA237; /* Gold outline */
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23352C24"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px; 
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon input {
+    padding-right: 40px;
+}
+
+.input-with-icon i {
+    position: absolute;
+    right: 15px;
+    color: #352C24;
+    pointer-events: none;
+}
+
+/* ======================================================= */
+/* 6. FLOATING ADD BUTTON */
+/* ======================================================= */
+.add-employee-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    background-color: #FFA237; /* Gold */
+    color: #352C24; /* Dark Brown */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 999;
+}
+
+.add-employee-btn i {
+    margin-left: 10px;
+}
+
+.add-employee-btn:hover {
+    background-color: #ffb65a; /* Lighter Gold */
+}
+
+
+/* ======================================================= */
+/* 7. CONFIRMATION MODALS (Updated Style) */
+/* ======================================================= */
+.modal-overlay-confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1010;
+}
+
+.modal-overlay-confirm.show-modal {
+    display: flex;
+}
+
+.modal-content-confirm {
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    padding: 30px 40px; /* Adjust padding */
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content-confirm .modal-icon-wrapper {
+    width: 70px; 
+    height: 70px;
+    background-color: #352C24; /* Dark Brown */
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content-confirm .modal-icon-wrapper i {
+    color: #FFA237; /* Gold */
+    font-size: 35px; 
+}
+
+.modal-content-confirm h3 {
+    margin: 0 0 15px 0; 
+    font-size: 22px; 
+    color: #FFF2E0; 
+    font-family: 'Abril Fatface', serif;
+}
+
+.modal-content-confirm p {
+    font-size: 15px; 
+    color: #FFF2E0;
+    margin-bottom: 30px; 
+    line-height: 1.5;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirm-buttons .btn {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px; 
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    min-width: 100px; 
+}
+
+.confirm-buttons .btn-cancel,
+.confirm-buttons .btn-confirm {
+    background-color: #FFA237; /* Gold */
+    color: #352C24; /* Dark Brown */
+}
+.confirm-buttons .btn-cancel:hover,
+.confirm-buttons .btn-confirm:hover {
+    background-color: #ffb65a; /* Lighter Gold */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.confirm-buttons .btn-delete-confirm {
+    background-color: #d9534f; /* Red */
+    color: #FFFFFF;
+}
+
+.confirm-buttons .btn-delete-confirm:hover {
+    background-color: #c9302c; /* Darker Red */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#download-confirm-modal .confirm-buttons {
+    justify-content: center;
+}
+#download-confirm-modal .btn-confirm {
+     width: auto; 
+     min-width: 150px;
+}
+
+/* ======================================================= */
+/* 8. SUCCESS MODAL (Updated Style) */
+/* ======================================================= */
+.modal-overlay-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1011;
+}
+
+.modal-overlay-success.show-modal {
+    display: flex;
+}
+
+.modal-content-success {
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content-success .success-icon-wrapper {
+    width: 70px; 
+    height: 70px;
+    background-color: #352C24; /* Dark Brown */
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #FFA237;
+}
+
+.modal-content-success .success-icon-wrapper i {
+    color: #FFA237; /* Gold */
+    font-size: 35px; 
+     content: "\f00c"; 
+     font-family: "Font Awesome 6 Free";
+     font-weight: 900;
+}
+#success-icon::before {
+     content: "\f00c"; 
+}
+
+
+.modal-content-success h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #FFF2E0; 
+    margin-bottom: 30px; 
+    font-family: 'Abril Fatface', serif;
+}
+
+.modal-content-success .btn-okay {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #FFA237; /* Gold */
+    color: #352C24; /* Dark Brown */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-family: Arial, sans-serif;
+    min-width: 120px;
+}
+
+.modal-content-success .btn-okay:hover {
+    background-color: #ffb65a; /* Lighter Gold */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
