@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory - The Celestia Hotel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Arial:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="celestia-logo.jpg" alt="Celestia Hotel Logo" class="header-logo">
+            <span class="logo-text">THE CELESTIA HOTEL</span>
+        </div>
+        <div class="user-profile"> <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+
+    <main class="content-area">
+        <nav class="controls-bar">
+
+            <div class="inventory-title">
+                <h1 class="inventory-text">INVENTORY</h1>
+            </div>
+
+            <div class="filters-and-search">
+                <select name="category" id="category-filter">
+                    <option value="">Category</option>
+                    </select>
+                <select name="status" id="status-filter">
+                    <option value="">Status</option>
+                    <option value="out of stock">Out of Stock</option>
+                    <option value="low stock">Low Stock</option>
+                    <option value="in stock">In Stock</option>
+                </select>
+                <div class="search-container">
+                    <input type="search" id="search-bar" placeholder="Search">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+
+                <i class="fas fa-sync-alt refresh-icon" id="refresh-icon" title="Refresh Stocks"></i>
+                <i class="fas fa-download download-icon" id="download-icon" title="Download History"></i>
+            </div>
+        </nav>
+
+        <nav class="tab-nav">
+            <button class="tab-link active" data-tab-target="#stocks-panel">Stocks</button>
+            <button class="tab-link" data-tab-target="#history-panel">History</button>
+        </nav>
+
+        <div class="tab-content">
+
+            <div class="tab-panel active" id="stocks-panel">
+                <div class="table-container">
+                    <table class="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Damage</th>
+                                <th>Stock In Date</th>
+                                <th>Stock Out Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventory-body">
+                            <tr
+                                data-id="101"
+                                data-name="Liquid Detergent"
+                                data-quantity="0"
+                                data-category="Cleaning solution"
+                                data-stockindate="2025-10-10"
+                                data-description="All-Purpose Cleaner for various surfaces.">
+
+                                <td>101</td>
+                                <td>Liquid Detergent</td>
+                                <td>Cleaning solution</td>
+                                <td>-</td>
+                                <td>All-Purpose Cleaner for various surfaces.</td>
+                                <td><span class="status status-out">Out of Stock</span></td>
+                                <td>No Damage</td>
+                                <td>10/10/25 14:30</td>
+                                <td>10/10/25 14:30</td>
+                                <td class="action-icons">
+                                    <i class="fas fa-edit" title="Edit Item"></i>
+                                    <i class="fas fa-trash" title="Delete Item"></i>
+                                </td>
+                            </tr>
+                            <tr
+                                data-id="102"
+                                data-name="Electrical Tape"
+                                data-quantity="1"
+                                data-category="Electrical"
+                                data-stockindate="2025-09-10"
+                                data-description="Insulating tape for electrical wires.">
+
+                                <td>102</td>
+                                <td>Electrical Tape</td>
+                                <td>Electrical</td>
+                                <td>1</td>
+                                <td>Insulating tape for electrical wires.</td>
+                                <td><span class="status status-low">Low Stock</span></td>
+                                <td>No Damage</td>
+                                <td>09/10/25 14:30</td>
+                                <td>-</td>
+                                <td class="action-icons">
+                                    <i class="fas fa-edit" title="Edit Item"></i>
+                                    <i class="fas fa-trash" title="Delete Item"></i>
+                                </td>
+                            </tr>
+                             <tr
+                                data-id="103"
+                                data-name="Light Bulb - Burnt"
+                                data-quantity="0"
+                                data-category="Electrical"
+                                data-stockindate="2025-09-10"
+                                data-description="Standard LED bulb, 60W equivalent.">
+
+                                <td>103</td>
+                                <td>Light Bulb - Burnt</td>
+                                <td>Electrical</td>
+                                <td>-</td>
+                                <td>Standard LED bulb, 60W equivalent.</td>
+                                <td><span class="status status-out">Out of Stock</span></td>
+                                <td>Burnt Out</td>
+                                <td>09/10/25 14:30</td>
+                                <td>10/10/25 14:30</td>
+                                <td class="action-icons">
+                                     <i class="fas fa-edit" title="Edit Item"></i>
+                                     <i class="fas fa-trash" title="Delete Item"></i>
+                                </td>
+                             </tr>
+                            <tr
+                                data-id="104"
+                                data-name="Light Bulb"
+                                data-quantity="20"
+                                data-category="Electrical"
+                                data-stockindate="2025-09-10"
+                                data-description="Standard LED bulb, 60W equivalent.">
+
+                                <td>104</td>
+                                <td>Light Bulb</td>
+                                <td>Electrical</td>
+                                <td>20</td>
+                                <td>Standard LED bulb, 60W equivalent.</td>
+                                <td><span class="status status-in">In Stock</span></td>
+                                <td>No Damage</td>
+                                <td>09/10/25 14:30</td>
+                                <td>-</td>
+                                <td class="action-icons">
+                                    <i class="fas fa-edit" title="Edit Item"></i>
+                                    <i class="fas fa-trash" title="Delete Item"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="history-panel">
+                <div class="table-container">
+                    <table class="inventory-table" id="history-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Quantity Change</th>
+                                <th>Status</th>
+                                <th>Damage</th>
+                                <th>Stock In Date</th>
+                                <th>Stock Out Date</th>
+                                <th>Action Type</th>
+                                <th>Performed By</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="add-item-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-boxes-stacked modal-icon-fa"></i>
+                    <h2>Add Item</h2>
+                </div>
+                <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+            </div>
+            <p class="modal-description">
+                Please fill out the item details carefully before adding them to the inventory.
+                Ensure that all information is accurate to maintain proper stock records.
+            </p>
+            <div class="modal-body">
+                <form id="add-item-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="item-name">Name</label>
+                            <input type="text" id="item-name" required>
+                        </div>
+                        <div class="form-group category-group">
+                            <label for="item-category">Category
+                                <i class="fas fa-pencil-alt category-edit-icon" id="add-category-edit-icon" title="Edit Categories"></i>
+                            </label>
+                            <select id="item-category" required>
+                                <option value="" disabled selected>Select a category</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group"> <label for="item-description">Description</label>
+                        <textarea id="item-description" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="item-quantity">Quantity</label>
+                            <input type="number" id="item-quantity" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stock-in-date">Stock In Date</label>
+                            <input type="date" id="stock-in-date" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">ADD ITEM</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay-confirm" id="confirmation-modal">
+        <div class="modal-content-confirm">
+            <h3>Are you sure you want to add this item to the inventory?</h3>
+            <p>
+                Please review the details before confirming.
+                Once added, the item will be recorded and visible in the inventory list.
+            </p>
+            <div class="confirm-buttons">
+                <button type="button" class="btn btn-cancel" id="confirm-cancel-btn">CANCEL</button>
+                <button type="button" class="btn btn-confirm" id="confirm-add-btn">YES, ADD ITEM</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay-success" id="success-modal">
+        <div class="modal-content-success">
+            <img src="inventory.jpg" alt="Success Icon" class="modal-icon" style="display: block; margin: 0 auto 20px;">
+            <h3>Item Added Successfully</h3>
+            <button type="button" class="btn btn-okay" id="success-okay-btn">OKAY</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="edit-item-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Edit Items</h2>
+                </div>
+                 <button class="modal-close-btn" id="edit-modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-item-form">
+
+                    <div class="form-group-static">
+                        <label>ID</label>
+                        <span id="edit-item-id">N/A</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-item-name">Name</label>
+                        <input type="text" id="edit-item-name" required>
+                    </div>
+
+                    <div class="form-group category-group">
+                        <label for="edit-item-category">Category</label>
+                        <select id="edit-item-category" required>
+                             </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-item-description">Description</label>
+                        <textarea id="edit-item-description" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group stock-adder-group">
+                            <label for="edit-item-add-stock">Add Stocks</label>
+                            <div class="stock-input-wrapper">
+                                <button type="button" class="stock-btn" id="stock-subtract-btn">-</button>
+                                <input type="number" id="edit-item-add-stock" value="0">
+                                <button type="button" class="stock-btn" id="stock-add-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-item-status">Status</label>
+                            <select id="edit-item-status" required>
+                                <option value="In Stock">In Stock</option>
+                                <option value="Low Stock">Low Stock</option>
+                                <option value="Out of Stock">Out of Stock</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="edit-modal-buttons">
+                        <button type="submit" class="submit-btn">SAVE CHANGES</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="delete-confirm-modal">
+        <div class="modal-content-confirm" style="max-width: 480px;">
+            <h3>Are you sure you want to delete this item?</h3>
+            <p>
+                This action cannot be undone, and all related records will be permanently removed.
+            </p>
+            <div class="confirm-buttons">
+                <button type="button" class="btn btn-delete-cancel" id="delete-cancel-btn">CANCEL</button>
+                <button type="button" class="btn btn-delete-confirm" id="delete-confirm-btn">YES, DELETE ITEM</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="edit-category-modal">
+         <div class="modal-content" style="max-width: 450px;">
+             <div class="modal-header">
+                 <div class="modal-title">
+                     <i class="fas fa-pencil-alt category-header-icon" style="font-size: 24px; color: #FFA237; margin-right: 15px;"></i>
+                     <h2>Edit Categories</h2>
+                 </div>
+                 <button class="modal-close-btn" id="category-modal-close-btn">&times;</button>
+             </div>
+             <div class="modal-body">
+                 <p class="modal-description" style="border: none; padding-bottom: 0; margin-bottom: 15px;">
+                     Add or remove your inventory categories. Changes will reflect after clicking DONE.
+                 </p>
+                 <ul class="category-list" id="category-list-ul" style="margin-bottom: 15px;">
+                     </ul>
+                 <form id="add-category-form" class="form-group" style="margin-bottom: 15px;">
+                     <label for="new-category-name" style="margin-bottom: 8px;">Add New Category</label>
+                     <div style="display: flex; gap: 10px;">
+                         <input type="text" id="new-category-name" placeholder="Enter new category name" style="margin-bottom: 0; flex: 1;">
+                         <button type="submit" class="submit-btn" style="margin-top: 0; padding: 12px; font-size: 16px; width: auto;">ADD</button>
+                     </div>
+                 </form>
+                 <div class="category-modal-buttons">
+                     <button type="button" class="submit-btn" id="save-category-changes-btn" style="width: 100%; margin-top: 0;">DONE</button>
+                 </div>
+             </div>
+         </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="profile-sidebar" id="profile-sidebar">
+        <button class="sidebar-close-btn" id="sidebar-close-btn">&times;</button>
+
+        <div class="profile-header">
+            <div class="profile-pic-container">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <h3 id="sidebar-account-name">Juan Baguian</h3>
+            <p>B-VERIFYC-01</p>
+        </div>
+
+        <nav class="profile-nav">
+            <a href="#" id="account-details-link">
+                <i class="fas fa-user-edit" style="margin-right: 10px;"></i> Account Details
+            </a>
+            </nav>
+
+        <div class="profile-footer">
+            <a href="#" class="logout-link" id="logout-link">
+                <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <button class="add-item-btn">
+        ADD ITEM
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <div class="modal-overlay" id="account-details-modal">
+        <div class="modal-content" style="max-width: 700px;">
+             <div class="modal-header account-modal-header">
+                 <div class="modal-title">
+                     <div class="profile-pic-container" style="width: 60px; height: 60px; margin-right: 15px;">
+                          <i class="fas fa-user-tie" style="font-size: 30px;"></i>
+                     </div>
+                     <div>
+                         <h2 style="margin: 0; font-size: 20px;" id="modal-account-name">Juan Baguian</h2>
+                         <p style="margin: 0; font-size: 14px; opacity: 0.8;">B-VERIFYC-01</p>
+                         <p style="margin: 5px 0 0; font-size: 12px; opacity: 0.8;">Inventory Management Head</p>
+                     </div>
+                 </div>
+                 <button class="modal-close-btn" id="account-modal-close-btn">&times;</button>
+             </div>
+
+             <div class="modal-body">
+                 <form id="account-details-form">
+
+                     <div class="form-row">
+                         <div class="form-group">
+                             <label for="acc-first-name">First Name</label>
+                             <input type="text" id="acc-first-name" value="Juan" required>
+                         </div>
+                         <div class="form-group">
+                             <label for="acc-email">Email Address</label>
+                             <input type="email" id="acc-email" value="juan@hotelcelestia.com" required>
+                         </div>
+                     </div>
+
+                     <div class="form-row">
+                         <div class="form-group">
+                             <label for="acc-middle-name">Middle Name (Optional)</label>
+                             <input type="text" id="acc-middle-name" value="Constant">
+                         </div>
+                         <div class="form-group">
+                             <label for="acc-username">Username</label>
+                             <input type="text" id="acc-username" value="demouname" required>
+                         </div>
+                     </div>
+
+                     <div class="form-row">
+                         <div class="form-group">
+                             <label for="acc-last-name">Last Name</label>
+                             <input type="text" id="acc-last-name" value="Baguian" required>
+                         </div>
+                         <div class="form-group">
+                             <label for="acc-password">Password</label>
+                             <input type="password" id="acc-password" value="••••••••" readonly required>
+                             <a href="#" class="change-password-link" id="change-password-link">Change Password</a>
+                         </div>
+                     </div>
+
+                     <div class="form-row">
+                         <div class="form-group" style="flex: 2;"> <label>Birthday</label>
+                             <div class="form-row" style="margin-bottom: 0; gap: 10px;">
+                                  <div class="form-group" style="flex: 3;">
+                                       <input type="date" id="acc-bday" value="2004-10-25" required>
+                                  </div>
+                             </div>
+                         </div>
+                         <div class="form-group" style="flex: 3;">
+                             <label for="acc-contact">Contact</label>
+                             <input type="text" id="acc-contact" value="992222222" required>
+                         </div>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="acc-address">Address</label>
+                         <textarea id="acc-address" rows="2">Block 1 Lot 2, Quezon City</textarea>
+                     </div>
+
+                     <button type="submit" class="submit-btn">SAVE CHANGES</button>
+                 </form>
+             </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay-confirm" id="save-confirm-modal">
+        <div class="modal-content-confirm">
+            <h3>Are you sure you want to save information?</h3>
+            <p>
+                Please double-check all entered details before proceeding. Once confirmed, your account will be updated.
+            </p>
+            <div class="confirm-buttons">
+                <button type="button" class="btn btn-cancel" id="save-cancel-btn">CANCEL</button>
+                <button type="button" class="btn btn-confirm" id="save-confirm-btn">YES, UPDATE</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay-success" id="save-success-modal">
+        <div class="modal-content-success">
+            <div class="success-icon-wrapper">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3>Save Changes Successfully</h3>
+            <button type="button" class="btn btn-okay" id="save-success-okay-btn">OKAY</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay-confirm" id="logout-confirm-modal">
+        <div class="modal-content-confirm">
+            <div class="modal-icon-wrapper" style="margin-bottom: 20px;">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <h3>Are you sure you want to log out?</h3>
+            <div class="confirm-buttons">
+                <button type="button" class="btn btn-cancel" id="logout-cancel-btn">CANCEL</button>
+                <button type="button" class="btn btn-confirm" id="logout-confirm-btn">YES, LOGOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay-confirm" id="download-history-modal">
+        <div class="modal-content-confirm">
+            <div class="modal-icon-wrapper" style="margin-bottom: 20px;">
+                <i class="fas fa-download"></i>
+            </div>
+            <h3>Download File?</h3>
+            <button type="button" class="submit-btn" id="download-history-btn" style="width: 80%; max-width: 200px; margin-top: 25px;">DOWNLOAD</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="change-password-modal">
+        <div class="modal-content" style="max-width: 450px;">
+            <div class="modal-header">
+                <div class="modal-title">
+                     <i class="fas fa-lock modal-icon-fa" style="font-size: 24px;"></i>
+                    <h2>Change Password</h2>
+                </div>
+                <button class="modal-close-btn" id="change-pw-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="change-password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" required>
+                    </div>
+
+                    <div class="modal-buttons" style="display: flex; gap: 15px; margin-top: 25px;">
+                        <button type="button" class="btn btn-cancel" id="change-pw-cancel-btn" style="width: 50%; margin-top: 0;">CANCEL</button>
+                        <button type="submit" class="submit-btn" style="width: 50%; margin-top: 0;">SAVE PASSWORD</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

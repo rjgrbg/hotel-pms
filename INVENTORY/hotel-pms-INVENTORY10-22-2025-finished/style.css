@@ -1,0 +1,893 @@
+/* =========================================================
+    PALETTE & FONTS (From Brand Guide)
+    Primary Font: 'Abril Fatface', serif
+    Secondary Font: Arial, sans-serif
+
+    Maroon: #480C1B
+    Gold/Orange: #FFA237
+    Off-white: #FFF2E0
+    Dark Brown: #352C24
+    Darker Modal Brown: #2b231c
+    Input Beige: #e0d8cc
+   =========================================================
+*/
+
+/* Basic Reset and Font */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* SECONDARY FONT */
+    background-color: #f0f0f0; /* Fallback background */
+    /* background-image: url('background.jpg'); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Main Header (Top Bar) */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white text */
+    font-family: 'Abril Fatface', serif; /* PRIMARY FONT */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 35px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* User Profile Icon */
+.user-profile {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #FFF2E0; /* Off-white border */
+    color: #FFF2E0; /* Off-white icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.user-profile .fa-user-circle {
+    font-size: 34px;
+}
+
+/* Content Area */
+.content-area {
+    padding: 20px;
+}
+
+/* Controls Bar (Search, Filters) */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* "INVENTORY" Title */
+.inventory-title {
+    display: flex;
+    align-items: center;
+}
+
+.inventory-text {
+    margin: 0;
+    font-family: 'Abril Fatface', serif; /* PRIMARY FONT */
+    font-weight: 700;
+    font-size: 30px;
+    color: #352C24; /* Dark Brown */
+}
+
+
+.filters-and-search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filters-and-search select,
+.filters-and-search input[type="search"] {
+    padding: 10px 40px 10px 15px; /* Added right padding for icon */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    color: #352C24;
+    box-sizing: border-box;
+}
+
+.filters-and-search input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+.filters-and-search input[type="search"]::-ms-clear {
+    display: none; width: 0; height: 0;
+}
+
+
+.search-container {
+    position: relative;
+}
+
+.search-container .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFA237; /* Gold/Orange */
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Control Bar Icons */
+.refresh-icon, .download-icon {
+    font-size: 20px; /* Consistent size */
+    color: #352C24; /* Dark Brown */
+    cursor: pointer;
+    padding: 5px; /* Clickable area */
+}
+.download-icon {
+    display: none; /* Hidden by default */
+}
+
+
+/* --- Tab Navigation --- */
+.tab-nav {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tab-link {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    background-color: #e0e0e0; /* Inactive color */
+    color: #352C24;
+    transition: background-color 0.2s, color 0.2s;
+}
+.tab-link.active {
+    background-color: #352C24; /* Dark Brown */
+    color: #FFF2E0; /* Off-white */
+}
+.tab-link:hover:not(.active) {
+    background-color: #f0f0f0;
+}
+
+.tab-content {
+    position: relative;
+}
+.tab-panel {
+    display: none; /* Hide all panels by default */
+}
+.tab-panel.active {
+    display: block; /* Show only active panel */
+}
+
+/* --- Inventory Table --- */
+.table-container {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 8px;
+    overflow: hidden; /* Important for border-radius on table */
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px; /* Apply radius to table */
+    overflow: hidden; /* Ensure contents respect radius */
+    border-spacing: 0; /* Remove default spacing */
+}
+
+.inventory-table th {
+    padding: 15px;
+    text-align: left;
+    background-color: #352C24; /* Dark Brown solid */
+    color: #FFA237; /* Gold text */
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 162, 55, 0.3);
+    vertical-align: middle; /* Align header text vertically */
+    white-space: nowrap; /* Prevent headers from wrapping */
+}
+/* Ensure corners match table radius */
+.inventory-table thead th:first-child { border-top-left-radius: 8px; }
+.inventory-table thead th:last-child { border-top-right-radius: 8px; }
+
+
+.inventory-table td {
+    padding: 15px;
+    text-align: left;
+    background-color: #FFF2E0; /* Solid Off-white */
+    color: #352C24; /* Dark text */
+    border-bottom: 1px solid rgba(53, 44, 36, 0.1);
+    font-size: 14px;
+    vertical-align: middle; /* Align cell content vertically */
+    word-wrap: break-word; /* Allow wrapping */
+    word-break: break-word;
+    white-space: normal;
+}
+
+/* Specific styling for the action icons cell */
+.inventory-table td.action-icons {
+    white-space: nowrap; /* Prevent icons from wrapping */
+    width: 80px; /* Give it a slightly fixed width */
+    text-align: center; /* Center the icons */
+    vertical-align: middle; /* Ensure vertical alignment */
+}
+
+/* Row Hover */
+.inventory-table tbody tr:hover td {
+    background-color: #f7e6ca; /* Slightly darker off-white on hover */
+}
+
+/* Ensure corners match table radius */
+.inventory-table tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+.inventory-table tbody tr:last-child td:last-child { border-bottom-right-radius: 8px; }
+.inventory-table tbody tr:last-child td {
+    border-bottom: none; /* Remove bottom border on last row */
+}
+
+/* Status Badges */
+.status {
+    padding: 5px 12px;
+    border-radius: 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block; /* Ensure padding works correctly */
+}
+.status-out { background-color: #d9534f; } /* Red */
+.status-low { background-color: #f0ad4e; } /* Yellow/Orange */
+.status-in { background-color: #5cb85c; } /* Green */
+
+/* History Table Quantity Change */
+.qty-change { font-weight: bold; }
+.qty-change.qty-in { color: #5cb85c; } /* Green */
+.qty-change.qty-out { color: #d9534f; } /* Red */
+
+/* Action Icons in Table */
+.action-icons i {
+    margin: 0 4px; /* Adjust spacing */
+    cursor: pointer;
+    color: #352C24; /* Dark Brown */
+    font-size: 16px;
+    padding: 5px; /* Clickable area */
+    transition: color 0.2s;
+}
+.action-icons i:hover {
+    color: #FFA237; /* Gold/Orange */
+}
+
+/* --- Floating "Add Item" Button --- */
+.add-item-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 999;
+}
+.add-item-btn i { margin-left: 10px; }
+.add-item-btn:hover { background-color: #6a2436; } /* Lighter maroon */
+
+
+/* ======================================================= */
+/* --- MODAL STYLES --- */
+/* ======================================================= */
+
+/* --- General Modal Overlay --- */
+.modal-overlay,
+.modal-overlay-confirm,
+.modal-overlay-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Base level for modals */
+}
+.modal-overlay-confirm { z-index: 1001; }
+.modal-overlay-success { z-index: 1002; }
+
+/* --- Show Modal Trigger --- */
+.modal-overlay.show-modal,
+.modal-overlay-confirm.show-modal,
+.modal-overlay-success.show-modal {
+    display: flex; /* Show the modal */
+}
+
+/* --- Main Modal Content (Add/Edit) --- */
+.modal-content {
+    background-color: #2b231c; /* UPDATED: Darker Brown */
+    color: #FFF2E0; /* Off-white text */
+    padding: 30px;
+    border-radius: 12px; /* UPDATED: Softer corners */
+    width: 90%;
+    max-width: 550px; /* UPDATED: Slightly narrower */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4); /* UPDATED: Stronger shadow */
+    max-height: 90vh; /* Prevent modal from being too tall */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px; /* Add some space below header */
+    border-bottom: 1px solid #4a4035; /* Faint border */
+}
+
+.modal-title {
+    display: flex;
+    align-items: center;
+    color: #FFF2E0;
+}
+.modal-icon-fa { /* Icon in Add Item modal & Change Password modal */
+    font-size: 30px; /* Adjusted size */
+    margin-right: 15px;
+    color: #FFA237; /* Gold */
+    width: 35px; /* Adjusted width */
+    text-align: center;
+}
+.modal-title h2 {
+    margin: 0;
+    font-size: 22px; /* Adjusted size */
+    font-family: 'Abril Fatface', serif;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: #FFF2E0;
+    font-size: 28px; /* Adjusted size */
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.7;
+    padding: 0 5px; /* Click area */
+    line-height: 1;
+}
+.modal-close-btn:hover { opacity: 1; }
+
+/* Modal Description (Add Item) */
+.modal-description {
+    font-size: 14px;
+    color: #FFF2E0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #4a4035;
+    padding-bottom: 15px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* --- Modal Form Styles --- */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Increased gap */
+    margin-bottom: 20px; /* Increased margin */
+}
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.modal-body > .form-group { /* For single-column elements */
+     margin-bottom: 20px; /* Increased margin */
+}
+
+/* Form Labels */
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold; /* UPDATED: Ensure bold */
+    color: #FFF2E0;
+    opacity: 0.9; /* UPDATED: Slight opacity */
+    display: block; /* Ensure it takes full width */
+}
+.category-group label { /* Special handling for category label */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.category-edit-icon { /* Pencil icon (now only in Add modal) */
+    color: #FFA237; /* Gold */
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.2s;
+}
+.category-edit-icon:hover { color: #ffb65a; } /* Lighter gold */
+
+/* Form Inputs, Selects, Textareas */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px; /* Adjusted padding */
+    border: none;
+    border-radius: 8px; /* UPDATED: Softer corners */
+    background-color: #e0d8cc; /* UPDATED: Lighter Beige */
+    color: #2b231c; /* UPDATED: Darker text */
+    font-size: 15px; /* Adjusted size */
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+.form-group textarea { resize: vertical; min-height: 60px; } /* Ensure textarea has min height */
+
+/* Select Arrow */
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%232b231c"><path d="M7 10l5 5 5-5z"/></svg>'); /* UPDATED: Darker arrow */
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+/* Focus Styles */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    background-color: #fff; /* UPDATED: White background on focus */
+    box-shadow: 0 0 0 2px #FFA237; /* Gold outline */
+}
+
+/* Static ID Display (Edit Modal) */
+.form-group-static span {
+    display: block;
+    padding: 14px; /* Match input padding */
+    border-radius: 8px; /* Match input radius */
+    background-color: #4a4035; /* Keep slightly darker background */
+    color: #FFF2E0;
+    font-size: 15px; /* Match input font size */
+    font-family: Arial, sans-serif;
+    opacity: 0.8;
+}
+
+/* Stock Adjuster (Edit Modal) */
+.stock-adder-group { flex: 1; } /* Take available space */
+.stock-input-wrapper { display: flex; align-items: stretch; /* Make items same height */} /* Make items same height */
+
+.stock-btn { /* +/- Buttons */
+    width: 45px; /* Adjusted size */
+    padding: 0; /* Remove padding, rely on height/line-height */
+    border: none;
+    background-color: #FFA237; /* Gold */
+    color: #352C24; /* Dark Brown */
+    font-size: 18px; /* Adjusted size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    line-height: 48px; /* Adjust based on input height */
+    height: 48px; /* Match calculated input height */
+}
+.stock-btn:hover { background-color: #ffb65a; } /* Lighter gold */
+
+.stock-input-wrapper input[type="number"] { /* Input between buttons */
+    text-align: center;
+    border-radius: 0; /* Sharp inner corners */
+    background-color: #e0d8cc; /* Match other inputs */
+    color: #2b231c; /* Match other inputs */
+    padding: 14px 10px; /* Adjusted padding */
+    height: 48px; /* Match button height */
+    line-height: normal;
+    flex-grow: 1; /* Take space */
+    min-width: 60px; /* Min width */
+     -moz-appearance: textfield; /* Hide number spinners */
+     appearance: textfield;
+}
+.stock-input-wrapper input[type="number"]::-webkit-inner-spin-button,
+.stock-input-wrapper input[type="number"]::-webkit-outer-spin-button {
+     -webkit-appearance: none; /* Hide number spinners */
+     margin: 0;
+}
+
+#stock-subtract-btn { /* Adjust corners */
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+#stock-add-btn { /* Adjust corners */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Modal Submit Button (Add Item / Save Changes / Save Password / Download) */
+.submit-btn {
+    width: 100%;
+    padding: 16px; /* Adjusted padding */
+    background-color: #FFA237; /* Gold */
+    color: #352C24; /* Dark Brown Text */
+    border: none;
+    border-radius: 8px; /* Match inputs */
+    font-size: 16px; /* Adjusted size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 25px; /* More space above button */
+    font-family: Arial, sans-serif;
+}
+.submit-btn:hover { background-color: #ffb65a; } /* Lighter gold */
+
+/* Edit Modal Buttons Wrapper */
+.edit-modal-buttons .submit-btn {
+    width: 100%; /* Ensure Save Changes is full width */
+}
+
+/* --- Confirmation Modal Styles --- */
+.modal-content-confirm {
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    padding: 30px 40px; /* Adjusted padding */
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.modal-content-confirm h3 {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    color: #FFA237; /* Gold */
+    font-family: 'Abril Fatface', serif;
+}
+.modal-content-confirm p {
+    font-size: 14px;
+    color: #FFF2E0;
+    margin-bottom: 30px; /* More space */
+    line-height: 1.5;
+}
+.confirm-buttons { display: flex; justify-content: center; gap: 15px; }
+.confirm-buttons .btn { /* Base button style */
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px; /* Adjusted padding */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: Arial, sans-serif;
+}
+/* Style for Cancel/Confirm/Delete buttons */
+.btn-cancel, /* Added .btn-cancel */
+.btn-confirm,
+.btn-delete-cancel,
+.btn-delete-confirm {
+    background-color: #FFA237; /* Gold */
+    color: #352C24; /* Dark Brown */
+}
+.btn-cancel:hover, /* Added .btn-cancel:hover */
+.btn-confirm:hover,
+.btn-delete-cancel:hover,
+.btn-delete-confirm:hover {
+     background-color: #ffb65a; /* Lighter gold */
+}
+
+/* Icon Wrapper for Confirm Modals (Logout, Download) */
+.modal-overlay-confirm .modal-icon-wrapper {
+     width: 80px; /* Adjusted size */
+     height: 80px;
+     background-color: #352C24; /* Dark Brown */
+     border-radius: 50%;
+     margin: 0 auto 25px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.modal-overlay-confirm .modal-icon-wrapper i {
+     color: #FFA237; /* Gold */
+     font-size: 40px; /* Adjusted size */
+}
+
+/* Style for the DOWNLOAD button (using submit-btn class now) */
+#download-history-modal .submit-btn {
+    /* Inherits .submit-btn styles */
+    margin-top: 25px; /* Ensure spacing from title */
+    width: 80%;
+    max-width: 200px;
+    padding: 14px; /* Adjust padding if needed */
+    font-size: 15px; /* Adjust font size if needed */
+}
+
+
+/* --- Success Modal Styles --- */
+.modal-content-success {
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.modal-content-success .modal-icon { /* Image icon */
+     display: block;
+     margin: 0 auto 20px;
+     max-width: 80px; /* Limit image size */
+}
+.modal-content-success h3 {
+    margin: 0 0 25px 0;
+    font-size: 22px;
+    color: #FFF2E0;
+    font-family: 'Abril Fatface', serif;
+}
+.modal-content-success .btn-okay { /* OKAY button */
+    border: none;
+    border-radius: 8px;
+    padding: 12px 35px; /* Adjusted padding */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #FFA237; /* Gold */
+    color: #352C24; /* Dark Brown */
+    transition: background-color 0.3s;
+    font-family: Arial, sans-serif;
+}
+.modal-content-success .btn-okay:hover { background-color: #ffb65a; } /* Lighter gold */
+
+/* Success Icon Wrapper (Save Account) */
+#save-success-modal .success-icon-wrapper {
+     width: 80px; /* Adjusted size */
+     height: 80px;
+     background-color: #352C24; /* Dark Brown */
+     border-radius: 50%;
+     margin: 0 auto 25px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+#save-success-modal .success-icon-wrapper i {
+     color: #FFA237; /* Gold */
+     font-size: 40px; /* Adjusted size */
+}
+
+
+/* --- Edit Category Modal Specific Styles --- */
+#edit-category-modal .modal-content {
+    background-color: #2b231c; /* Match other modals */
+    max-width: 450px; /* Suitable width */
+}
+#edit-category-modal .category-header-icon { /* Icon in header */
+    font-size: 24px;
+    color: #FFA237;
+    margin-right: 15px;
+}
+#edit-category-modal .modal-description { /* Adjust description style */
+     border-bottom: none;
+     padding-bottom: 0;
+     margin-bottom: 20px; /* More space */
+}
+.category-list { /* UL element */
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0; /* Space below list */
+    max-height: 200px; /* Limit height */
+    overflow-y: auto; /* Allow scrolling */
+    border: 1px solid #4a4035; /* Faint border */
+    border-radius: 8px; /* Match inputs */
+    background-color: #352C24; /* Slightly lighter than modal bg */
+}
+.category-list-item { /* LI element */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px; /* Padding inside item */
+    border-bottom: 1px solid #4a4035;
+    font-size: 15px;
+    color: #FFF2E0;
+}
+.category-list-item:last-child { border-bottom: none; } /* Remove border on last item */
+
+.category-actions i { /* Trash icon */
+    color: #FFA237;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 5px; /* Click area */
+}
+.category-actions i:hover { color: #ffb65a; }
+
+#add-category-form { margin-bottom: 20px; } /* Space below add form */
+#add-category-form .submit-btn { /* Style the small ADD button */
+     margin-top: 0;
+     padding: 12px 18px; /* Adjust padding */
+     font-size: 15px;
+     width: auto; /* Allow button to size naturally */
+     flex-shrink: 0; /* Prevent button from shrinking */
+}
+#add-category-form div { display: flex; gap: 10px; align-items: stretch;} /* Align input and button */
+#add-category-form input { margin-bottom: 0; flex-grow: 1; } /* Input takes space */
+
+.category-modal-buttons .submit-btn { /* DONE button */
+     margin-top: 0;
+     width: 100%; /* Full width */
+}
+
+/* ======================================================= */
+/* --- PROFILE SIDEBAR STYLES --- */
+/* ======================================================= */
+.sidebar-overlay {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1004;
+    display: none; /* Hidden */
+}
+.sidebar-overlay.show-sidebar { display: block; } /* Show */
+
+.profile-sidebar {
+    position: fixed; top: 0; right: -320px; /* Start off-screen */
+    width: 300px; height: 100%;
+    background-color: #480C1B; /* Maroon */
+    color: #FFF2E0; /* Off-white */
+    z-index: 1005;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out;
+    display: flex; flex-direction: column;
+}
+.profile-sidebar.show-sidebar { right: 0; } /* Slide in */
+
+.sidebar-close-btn {
+    position: absolute; top: 10px; right: 20px;
+    background: none; border: none;
+    color: #FFF2E0;
+    font-size: 30px;
+    cursor: pointer;
+    opacity: 0.7;
+    padding: 5px; line-height: 1;
+}
+.sidebar-close-btn:hover { opacity: 1; }
+
+.profile-header { padding: 40px 20px 30px 20px; text-align: center; }
+.profile-pic-container {
+    width: 90px; height: 90px;
+    background-color: #FFA237; /* Gold */
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex; align-items: center; justify-content: center;
+}
+.profile-pic-container i { font-size: 45px; color: #352C24; } /* Dark Brown */
+.profile-header h3 {
+    margin: 0; font-size: 20px; color: #FFF2E0;
+    font-family: 'Abril Fatface', serif;
+}
+.profile-header p { margin: 5px 0 0; font-size: 14px; color: #FFF2E0; opacity: 0.9; }
+
+.profile-nav { padding: 0; flex-grow: 1; } /* Takes remaining space */
+.profile-nav a {
+    display: block; padding: 18px 30px;
+    text-decoration: none; color: #FFF2E0;
+    font-size: 16px;
+    border-top: 1px solid #6a2436; /* Lighter maroon border */
+    transition: background-color 0.2s;
+}
+.profile-nav a:hover { background-color: #6a2436; }
+
+.profile-footer { padding: 0; border-top: 1px solid #6a2436; }
+.logout-link {
+    display: block; padding: 18px 30px;
+    text-decoration: none; color: #FFF2E0;
+    font-size: 16px; background: none; border: none;
+    width: 100%; text-align: left; cursor: pointer;
+    transition: background-color 0.2s;
+}
+.logout-link:hover { background-color: #6a2436; }
+
+/* ======================================================= */
+/* --- ACCOUNT DETAILS MODAL SPECIFIC STYLES --- */
+/* ======================================================= */
+#account-details-modal .modal-content {
+    background-color: #2b231c; /* Match other modals */
+    max-width: 700px; /* Wider for this form */
+}
+.account-modal-header .modal-title { align-items: flex-start; }
+.account-modal-header .profile-pic-container { /* Smaller icon in header */
+    width: 60px; height: 60px; margin-right: 15px;
+    background-color: #FFA237; color: #352C24;
+}
+.account-modal-header .profile-pic-container i { font-size: 30px; color: #352C24; }
+#account-details-modal h2 { font-size: 20px; } /* Adjust header text sizes */
+#account-details-modal p { font-size: 14px; opacity: 0.8; }
+#account-details-modal p + p { margin-top: 5px; font-size: 12px; }
+
+/* Specific adjustments for Account Details form layout */
+#account-details-form .form-row { gap: 25px; } /* More gap */
+#account-details-form .form-group input,
+#account-details-form .form-group textarea {
+     background-color: #e0d8cc; /* Match other modals */
+     color: #2b231c;
+}
+#account-details-form .form-group input:focus,
+#account-details-form .form-group textarea:focus {
+     background-color: #fff; /* Match other modals */
+}
+/* Birthday layout */
+#account-details-form .form-row > .form-group[style*="flex: 2"] { flex: 2; }
+#account-details-form .form-row > .form-group[style*="flex: 3"] { flex: 3; }
+#account-details-form .form-group > .form-row { margin-bottom: 0; gap: 10px; }
+
+/* Change Password Link */
+.change-password-link {
+    display: block; /* Make it take full width */
+    text-align: right;
+    font-size: 13px; /* Slightly smaller */
+    color: #FFA237; /* Gold/Orange */
+    text-decoration: none;
+    margin-top: 8px; /* Space from input */
+    transition: color 0.2s;
+}
+.change-password-link:hover {
+    color: #ffb65a; /* Lighter gold on hover */
+    text-decoration: underline;
+}
+
+/* Style for buttons inside Change Password modal */
+#change-password-modal .modal-buttons button {
+     width: 50%;
+     margin-top: 0;
+}
+#change-pw-cancel-btn {
+     /* Inherits .btn .btn-cancel styles */
+     background-color: #FFF2E0; /* Off-white background */
+     color: #352C24; /* Dark text */
+}
+#change-pw-cancel-btn:hover {
+     background-color: #f7e6ca; /* Slightly darker off-white */
+}
